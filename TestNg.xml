@@ -1,0 +1,222 @@
+<suite name="Itsmyaccount-Testcases">
+<test name="AllTestScenarios">
+<classes>
+<class name="dashboard.GetAdminUserCredentialsAndChangePassword"/>
+<class name="dashboard.GetMemberUserCredentialsAndChangePassword"/>
+<class name="dashboard.Managerole"/>
+<class name="dashboard.RoleAvailabilityCheckingInManageMembers"/>
+<class name="dashboard.ManageNonMembers"/>
+<class name="dashboard.ManageMembers"/>
+<class name="dashboard.HidingMailAndContactOfCommitteeMember"/>
+<class name="dashboard.Noticeboard"/>
+<class name="dashboard.ResetPassword"/>
+<class name="dashboard.AdminProfile"/>
+<class name="dashboard.Duelist"/>
+<class name="dashboard.AdminContactIMAHelpDesk"/>
+<class name="dashboard.Errornotifications"/>
+<class name="dashboard.FAQ"/>
+<class name="dashboard.KeyMemberDetails"/>
+<class name="dashboard.AdminMyresidents"/>
+<class name="dashboard.MemberMyResidents"/>
+<class name="dashboard.Carparkinglots"/>
+<!--<class name="dashboard.AdminMaintananceTeamMembers"/>-->
+
+<!--<class name="dashboard.MembermaintainanceTeamMembers"/>-->
+<class name="dashboard.AdminCommiteeMembers"/>
+<class name="dashboard.MemberCommiteeMembers"/>
+<!--<class name="dashboard.AdminRegularvendors"/>-->
+<class name="dashboard.MemberRegularVendor"/>
+<!--<class name="dashboard.Adminvisitorregister"/>-->
+<!--<class name="dashboard.Membervisitorregistor"/>-->
+<class name="dashboard.AdminPostageandcourier"/>
+<class name="dashboard.MemberPostagecourierregistor"/>
+<class name="dashboard.AdminAttendanceRegister"/>
+<class name="dashboard.MemberAttendanceregistor"/>
+<!--<class name="dashboard.AdminSarvantmaidlist"/>-->
+<!--<class name="dashboard.MemberServantmaidList"/>-->
+<class name="dashboard.AdminSocietyMeetingCalendarWithoutSms"/>
+<class name="dashboard.AdminSocietyMeetingCalanderWithSms"/>
+<class name="dashboard.ShowEventsInSocietyMeetingCalendar"/>
+<class name="dashboard.MemberSocietyMeetingCalendar"/>
+<class name="dashboard.AdminCurrentevents"/>
+<class name="dashboard.Membercurrentevents"/>
+<class name="dashboard.AdminSocietyassestsWithoutServiceCompletionDate"/>
+<class name="dashboard.AdminSocietyAssetWithServiceCompletionDate"/>
+<class name="dashboard.AdminSocietyinventoryMigratedItems"/>
+<class name="dashboard.AdminSocietyInVentoryReceipts"/>
+<class name="dashboard.AdminSocietyinventoryissues"/>
+<class name="dashboard.AdminSocietyInventoryInchargeDetails"/>
+<class name="dashboard.AdminSocietyInventoryReports"/>
+<class name="dashboard.MemberSocietyAssests"/>
+<class name="dashboard.MemberSocietyInventory"/>
+<class name="dashboard.AdminAddEditDeletecomplaints"/>
+<class name="dashboard.AdminComplaintTracker"/>
+<class name="dashboard.ChangeComplaintStatusToClosed"/>
+<class name="dashboard.Membercomplaints"/>
+<class name="dashboard.MemberComplaintTracking"/>
+<class name="dashboard.CreateComplaintByNonMember"/>
+<class name="dashboard.NonMemberComplaintTracker"/>
+<class name="dashboard.AdminSocietydocuments"/>
+<class name="dashboard.MemberMyAccount"/>
+<class name="dashboard.AdminPDC"/>
+<class name="dashboard.MemberPdc"/>
+<class name="dashboard.MemberPersonalDocuments"/>
+<class name="dashboard.CategoriesInMyCommitments"/>
+<class name="dashboard.CreateCommitments"/>
+<class name="dashboard.MemberDashBoardNetBalance"/>
+<class name="dashboard.MemberContactIMAHelpDesk"/>
+
+
+<class name="MyFacilities.CreateFacilityWithFreeNoBookingAllowed"/>
+<class name="MyFacilities.CreateFacilityWithFreeBookingAllowedFor30Mints"/>
+<class name="MyFacilities.CreatePaidFacilityOnlyForOwners"/>
+<class name="MyFacilities.CreatePaidFacilityOnlyForTenant"/>
+<class name="MyFacilities.CreatePaidFacilityOnlyForOthers"/>
+<class name="MyFacilities.CreateFacilityForBoth"/>
+<class name="MyFacilities.CreateFacilityWithHourlyhalfDayFullDayPriceDetails"/>
+<class name="MyFacilities.CreateFacilityWithHalfDayFulldayPackagePriceDetails"/>
+<class name="MyFacilities.BookFacilityWithFree"/>
+<class name="MyFacilities.BookFreeFacilityWith30MintsWithAdminLogin"/>
+<class name="MyFacilities.BookFreeFacilityWith30MintsWithMemberLogin"/>
+<class name="MyFacilities.BookFreeFacilityfor30mintsOverlaping"/>
+<class name="MyFacilities.BookingFreeFacilityWithLessthanAllowedTime"/>
+<class name="MyFacilities.SimulationOfOwnerFacility"/>
+<class name="MyFacilities.BookingOwnerFacilityWithMemberLogin"/>
+<class name="MyFacilities.SimulateOwnerFacilityWithMemberLogin"/>
+<class name="MyFacilities.SimulateOwnerFacilityWithTenantLogin"/>
+<class name="MyFacilities.BookOwnerFacilityWithOverlappingTimingsWithAdminLogin"/>
+<class name="MyFacilities.BookOwnerFacilityWithOverLappingTimingsWithMemberLogin"/>
+<class name="MyFacilities.SimulationOftenantFacilityWithAdminLogin"/>
+<class name="MyFacilities.BookTenantFacilityWithTenantLogin"/> 
+<class name="MyFacilities.SimulateTenantFacilityWithTenantLogin"/>
+<class name="MyFacilities.SimulateTenantFacilityWithOwnerLogin"/>
+<class name="MyFacilities.BookTenantFacilityWithOverlapTimingWithAdminLogin"/>
+<class name="MyFacilities.BookingTenantFacilityWithOverlapTimingsWithTenantLogin"/>
+<class name="MyFacilities.SimulateOTHFacilityWithAdminLogin"/>
+<class name="MyFacilities.BookOTHFacilityWithAdminLogin"/>
+<class name="MyFacilities.SimulateOTHFacilityFor1hr30mintsWithAdminLogin"/>
+<class name="MyFacilities.SimulateOTHFacilityWithOwnerLogin"/>
+<class name="MyFacilities.SimulateOTHFacilityWithTenantLogin"/>
+<class name="MyFacilities.BookOTHFacilityWithSameTimingOverlap"/>
+<class name="MyFacilities.BookingOTHFacilityWithDiffOverlapTimings"/>
+<class name="MyFacilities.CancelOwnerFacility"/>
+<class name="MyFacilities.CancelTenantFacility"/>
+<class name="MyFacilities.BookOwnerFacilityWithOwnerLoginAfterCancel"/>
+<class name="MyFacilities.CancelOTHFacilityWithAdminLogin"/>
+<class name="MyFacilities.simulateFacilityOfRatesForBothWithOwnerLogin"/>
+<class name="MyFacilities.SimulateFacilityOfRatesForBothWithTenantLogin"/>
+<class name="MyFacilities.SimulateFacilityOfRatesForBOTHWithAdminLogin"/>
+<class name="MyFacilities.simulationOfFacilityWithSpecialPackageAndHourlyRates"/>
+<class name="MyFacilities.simulationOfFacilityOFRatesForBOTHWith5hrs30Mints"/>
+<class name="MyFacilities.BookFacilityOfRatesForBothWithSplPackageAndhourlyrates"/>
+<class name="MyFacilities.CancelFacilityOfRatesForBothWithSplPackageAndhourlyratesWithAdminLogin"/>
+<class name="MyFacilities.SimulationOfFacilityWithFullAndHalfDayChargesWithOwnerLogin"/>
+<class name="MyFacilities.SimulationOfFacilityWithFullAndHalfDayChargesWithTenantLogin"/>
+<class name="MyFacilities.SimulationOfFacilityWithHalfAndFullDaypricesfor1dayWithAdminLogin"/>
+<class name="MyFacilities.SimulationOfFacilityOfFullandHalfDaypricesfor6hrsWithAdminLogin"/>
+<class name="MyFacilities.SimulationFacilityofFullAndHalfDayPricesFor13hrsWithAdminLogin"/>
+<class name="MyFacilities.SimulationOfFacilityWithPackagePricesWithOwnerLogin"/>
+<class name="MyFacilities.simulationOfFacilityWithPackagePricesWithTenantLogin"/>
+<class name="MyFacilities.simulationOfFacilityWithPackagePricesWithAdminLogin"/>
+<class name="MyFacilities.simulationOfFacilityWithPackagePricesfor6hrsWithAdminLogin"/>
+<class name="MyFacilities.SimulationOfFacilityWithPackagePricesFor5HrsWithAdminLogin"/>
+
+
+IntegrationWithBioMetricDevice
+
+<class name="IntegrationWithBiometric.AdminVacantcarparking"/>
+<class name="IntegrationWithBiometric.AssignVacantCaraprkingToVisitors"/>
+<class name="IntegrationWithBiometric.AdminInHouseStaffWithOutBadgeId"/>
+<class name="IntegrationWithBiometric.AdminInHouseStaffWithBadgeIDAndSMSTick"/>
+<class name="IntegrationWithBiometric.InHouseStaffWithBadgeIdAndWithOutSMSTick"/>
+<class name="IntegrationWithBiometric.ServantMaidListwithouBageID"/>
+<class name="IntegrationWithBiometric.ServantMaidListWithBadgeID"/>
+<class name="IntegrationWithBiometric.EditSeravntmaidListWithUnTickSMS"/> 
+<class name="IntegrationWithBiometric.AdminRegularvendorsWithoutBadgeId"/>
+<class name="IntegrationWithBiometric.RegularVendorsWithBadgeId"/>
+<class name="IntegrationWithBiometric.AddRegularVendorWithoutSMSTick"/>
+
+<class name="VisitorRegister.NewVisitorWithBlockAndApartment"/>
+<class name="VisitorRegister.NewVisitorRecordWithoutBlockAndApartment"/>
+<class name="VisitorRegister.NewVisitorWithBlockAndApartmentWithoutSMStick"/>
+<class name="VisitorRegister.NewVisitorWithoutBlockAndApartmentWithoutsmstick"/>
+<class name="VisitorRegister.ExpectedVisitorWithBlockAndApartment"/>
+<class name="VisitorRegister.ExpectedVisitorwithoutBlockandApartment"/>
+<class name="VisitorRegister.ExpectedVisitorWithBlockAndApartmentWithoutSMStick"/>
+<class name="VisitorRegister.expectedVisitorWithoutBlockAndApartmentWithoutSMStick"/>
+<class name="VisitorRegister.FrequentVisitor"/>
+<class name="VisitorRegister.FrequentVisitorWithoutSMStick"/>
+<class name="VisitorRegister.ExpectedVisitorByMember"/>
+<class name="VisitorRegister.ExpectedVisitorByMemberWithoutSMStick"/>
+<class name="VisitorRegister.SearchAndExportInAdminLogin"/>//
+<class name="VisitorRegister.SearchandExportInMemberLogin"/>
+
+
+
+Finance
+
+
+<class name="myfinance.BookingFacilityFor1000_01"/>
+<class name="myfinance.FixedInvoiceGeneration"/>
+<class name="myfinance.VariableInvoiceGeneration"/>
+<class name="myfinance.PaymentForTheFacilityWhichIsBookedFor1000"/>
+<class name="myfinance.Step7simulationTocheckForAdvancePayments"/>
+<class name="myfinance.ReversalFunctionTestingSimulationstep10"/>
+<class name="myfinance.AdvancePaymentForfacility1000"/>
+<class name="myfinance.AdvancePaymentGeneral"/>
+<class name="myfinance.AdvancePaymentForMaintainance"/>//
+<class name="myfinance.AdvanceReversalSimulationstep14"/>
+<class name="myfinance.ReversalOfFacilityAdvance"/>//
+<class name="myfinance.AdvancePaymentForfacility1000"/>
+<class name="myfinance.BookingFacilityFor4500"/>
+<class name="myfinance.ReversalOffacilityAdvanceSimulation"/>
+<class name="myfinance.FixedMaintainanceInvoiceGenerationwithExcelUpload"/>
+<class name="myfinance.FixedInvoiceWithTax"/>
+<class name="myfinance.PaymentForFixedInvoiceSimulation"/>
+<class name="myfinance.FixedInvoiceGenerationFor2000"/>
+<class name="myfinance.PartialPaymentForFixedInvoice2000"/>
+<class name="myfinance.WaiverForFixedInvoice2000"/>
+<class name="myfinance.BalancePaymentForFixedInvoice2000"/>
+<class name="myfinance.VariableInvoiceGenerationWithTax"/>
+<class name="myfinance.VariableInvoiceGenerationWithExcelUpload"/>
+<class name="myfinance.FacilityBookingFor1000"/>
+<class name="myfinance.PartialpaymentForVariableInvoiceFullPaymentForFacility"/>
+<class name="myfinance.PartialAndFullPaymentFor2Invoices"/>
+<class name="myfinance.CreateEditDeleteGLAccount"/>
+<class name="myfinance.ManualPostingInFinanceVouchers"/>
+<class name="myfinance.ManualPostingInFinanceVouchersThroughExcel"/>
+<class name="myfinance.ManualPostingInFinanceVouchersWithBlockAndApartmentNumber"/>
+<class name="myfinance.DeleteMemberGL"/>
+<class name="myfinance.ManualPostingInFinanaceVouchersForNextFinancialYear"/>
+<class name="myfinance.ManualPostingInFinanaceVouchersForPreviousYearDate"/>
+<class name="myfinance.VariableInvoiceGenerationWithReversal"/>
+<class name="myfinance.AddEditDeleteLedgerGroup"/>
+<class name="myfinance.TrialBalance"/>
+<class name="myfinance.IncomeAndExpenditure"/>
+<class name="myfinance.Ledger"/>
+<class name="myfinance.FilterDatesInFinanceVouchers"/>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</classes>
+</test>
+
+</suite>

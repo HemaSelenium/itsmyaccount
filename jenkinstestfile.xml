@@ -1,0 +1,8 @@
+<suite name="Jenkins-Allclasses">
+<test name="AllTestScenarios">
+<classes>
+<class name="IntegrationWithBiometric.ServantMaidListwithouBageID"/>
+</classes>
+</test>
+
+</suite>

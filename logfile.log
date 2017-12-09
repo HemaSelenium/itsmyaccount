@@ -1,0 +1,54 @@
+2017-02-25 11:02:42,615 INFO  [AdminRegularvendors] login sucessfully 
+2017-02-25 12:57:06,816 INFO  [AdminRegularvendors] login Sucessfully 
+2017-02-25 13:00:46,501 INFO  [AdminRegularvendors] login Sucessfully 
+2017-02-25 13:43:37,013 INFO  [AdminRegularvendors] login Sucessfully 
+2017-02-25 13:46:28,977 INFO  [AdminRegularvendors] login Sucessfully 
+2017-02-25 14:08:00,092 INFO  [AdminRegularvendors] login Sucessfully 
+2017-02-25 14:14:31,947 INFO  [AdminRegularvendors] login Sucessfully 
+2017-02-25 14:15:46,070 INFO  [AdminRegularvendors] login Sucessfully 
+
+ INFO [AdminRegularvendors] login Sucessfully 
+login Sucessfully 
+login Sucessfully 
+login Sucessfully 
+login Sucessfully 
+I/O exception (org.apache.http.NoHttpResponseException) caught when processing request to {}->http://127.0.0.1:7055: The target server failed to respond 
+Retrying request to {}->http://127.0.0.1:7055 
+I/O exception (org.apache.http.NoHttpResponseException) caught when processing request to {}->http://127.0.0.1:7055: The target server failed to respond 
+Retrying request to {}->http://127.0.0.1:7055 
+I/O exception (org.apache.http.NoHttpResponseException) caught when processing request to {}->http://127.0.0.1:7055: The target server failed to respond 
+Retrying request to {}->http://127.0.0.1:7055 
+I/O exception (org.apache.http.NoHttpResponseException) caught when processing request to {}->http://127.0.0.1:7055: The target server failed to respond 
+Retrying request to {}->http://127.0.0.1:7055 
+I/O exception (org.apache.http.NoHttpResponseException) caught when processing request to {}->http://127.0.0.1:7057: The target server failed to respond 
+Retrying request to {}->http://127.0.0.1:7057 
+I/O exception (org.apache.http.NoHttpResponseException) caught when processing request to {}->http://127.0.0.1:7056: The target server failed to respond 
+Retrying request to {}->http://127.0.0.1:7056 
+I/O exception (org.apache.http.NoHttpResponseException) caught when processing request to {}->http://127.0.0.1:7055: The target server failed to respond 
+Retrying request to {}->http://127.0.0.1:7055 
+I/O exception (org.apache.http.NoHttpResponseException) caught when processing request to {}->http://127.0.0.1:7055: The target server failed to respond 
+Retrying request to {}->http://127.0.0.1:7055 
+I/O exception (org.apache.http.NoHttpResponseException) caught when processing request to {}->http://127.0.0.1:7059: The target server failed to respond 
+Retrying request to {}->http://127.0.0.1:7059 
+I/O exception (org.apache.http.NoHttpResponseException) caught when processing request to {}->http://127.0.0.1:7060: The target server failed to respond 
+Retrying request to {}->http://127.0.0.1:7060 
+I/O exception (org.apache.http.NoHttpResponseException) caught when processing request to {}->http://127.0.0.1:7059: The target server failed to respond 
+Retrying request to {}->http://127.0.0.1:7059 
+I/O exception (org.apache.http.NoHttpResponseException) caught when processing request to {}->http://127.0.0.1:7058: The target server failed to respond 
+Retrying request to {}->http://127.0.0.1:7058 
+I/O exception (org.apache.http.NoHttpResponseException) caught when processing request to {}->http://127.0.0.1:7057: The target server failed to respond 
+Retrying request to {}->http://127.0.0.1:7057 
+I/O exception (org.apache.http.NoHttpResponseException) caught when processing request to {}->http://127.0.0.1:7056: The target server failed to respond 
+Retrying request to {}->http://127.0.0.1:7056 
+I/O exception (org.apache.http.NoHttpResponseException) caught when processing request to {}->http://127.0.0.1:7055: The target server failed to respond 
+Retrying request to {}->http://127.0.0.1:7055 
+I/O exception (org.apache.http.NoHttpResponseException) caught when processing request to {}->http://127.0.0.1:7056: The target server failed to respond 
+Retrying request to {}->http://127.0.0.1:7056 
+I/O exception (org.apache.http.NoHttpResponseException) caught when processing request to {}->http://127.0.0.1:7055: The target server failed to respond 
+Retrying request to {}->http://127.0.0.1:7055 
+I/O exception (org.apache.http.NoHttpResponseException) caught when processing request to {}->http://127.0.0.1:7055: The target server failed to respond 
+Retrying request to {}->http://127.0.0.1:7055 
+I/O exception (org.apache.http.NoHttpResponseException) caught when processing request to {}->http://127.0.0.1:7056: The target server failed to respond 
+Retrying request to {}->http://127.0.0.1:7056 
+I/O exception (org.apache.http.NoHttpResponseException) caught when processing request to {}->http://127.0.0.1:7056: The target server failed to respond 
+Retrying request to {}->http://127.0.0.1:7056 

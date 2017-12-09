@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Suite name="VisitorRegisterTestCases">
+<test name="Visitorscenarios">
+<classes>
+<class name="VisitorRegister.NewVisitorWithBlockAndApartment.java"/>
+<class name="VisitorRegister.NewVisitorRecordWithoutBlockAndApartment.java"/>
+<class name="VisitorRegister.NewVisitorWithBlockAndApartmentWithoutSMStick.java"/>
+<class name="VisitorRegister.NewVisitorWithoutBlockAndApartmentWithoutsmstick.java"/>
+<class name="VisitorRegister.ExpectedVisitorWithBlockAndApartment.java"/>
+<class name="VisitorRegister.ExpectedVisitorwithoutBlockandApartment.java"/>
+<class name="VisitorRegister.ExpectedVisitorWithBlockAndApartmentWithoutSMStick.java"/>
+<class name="VisitorRegister.expectedVisitorWithoutBlockAndApartmentWithoutSMStick.java"/>
+<class name="VisitorRegister.FrequentVisitor.java"/>
+<class name="VisitorRegister.FrequentVisitorWithoutSMStick.java"/>
+<class name="VisitorRegister.ExpectedVisitorByMember.java"/>
+<class name="VisitorRegister.ExpectedVisitorByMemberWithoutSMStick.java"/>
+<class name="VisitorRegister.SearchAndExportInAdminLogin.java"/>//
+<class name="VisitorRegister.SearchandExportInMemberLogin.java"/>
+</classes>
+</test>
+</Suite>

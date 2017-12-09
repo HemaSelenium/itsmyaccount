@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Failed suite [Itsmyaccount-Testcases]">
+  <test name="AllTestScenarios(failed)">
+    <classes>
+      <class name="dashboard.Managerole">
+        <methods>
+          <include name="tearDown"/>
+          <include name="setUp"/>
+        </methods>
+      </class> <!-- dashboard.Managerole -->
+      <class name="dashboard.RoleAvailabilityCheckingInManageMembers">
+        <methods>
+          <include name="DeleteRoleAfterAssignToMember"/>
+          <include name="tearDown"/>
+          <include name="setUp"/>
+        </methods>
+      </class> <!-- dashboard.RoleAvailabilityCheckingInManageMembers -->
+    </classes>
+  </test> <!-- AllTestScenarios(failed) -->
+</suite> <!-- Failed suite [Itsmyaccount-Testcases] -->
