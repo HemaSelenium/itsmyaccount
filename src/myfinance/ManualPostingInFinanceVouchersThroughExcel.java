@@ -34,6 +34,7 @@ public class ManualPostingInFinanceVouchersThroughExcel extends TestBase {
 			Reporter.log("--------------------------------------",true);
 			Reporter.log("Script Name:  Manual Posting In FinanceVouchers Through Excel",true);
 			helper1.SAP();
+			Reporter.log("--------------------------------------",true);
 			
 		}
 		
@@ -117,6 +118,7 @@ public class ManualPostingInFinanceVouchersThroughExcel extends TestBase {
  	 method.TakeScreenShot("manualPostingForpdf");
 		Reporter.log("File Name:"+FinanceGlobalVariables.ScreenShotsFileName+"manualPostingForpdf", true);
 				helper1.SAP();
+				Reporter.log("--------------------------------------",true);
  	 
 	}
 	

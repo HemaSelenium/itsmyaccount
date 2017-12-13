@@ -26,6 +26,7 @@ public class PartialAndFullPaymentFor2Invoices extends TestBase {
 		Reporter.log("--------------------------------------",true);
 		Reporter.log("Script Name: Partial And Full Payment For 2Invoices",true);
 		helper1.SAP();
+		Reporter.log("--------------------------------------",true);
 		
 	}
 
@@ -39,6 +40,7 @@ public class PartialAndFullPaymentFor2Invoices extends TestBase {
 	public void partial() throws InterruptedException, BiffException, IOException, HeadlessException, AWTException {
 		help2.PaymentInstep23D();
 		helper1.SAP();
+		Reporter.log("--------------------------------------",true);
 		
 	}
 	
