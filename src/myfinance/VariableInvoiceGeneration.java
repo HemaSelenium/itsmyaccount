@@ -37,6 +37,8 @@ public class VariableInvoiceGeneration extends TestBase {
 		Reporter.log("--------------------------------------",true);
 		Reporter.log("Script Name:  Variable Invoice Generation For Owner BaseAmount",true);
 		helper1.SAP();
+		Reporter.log("--------------------------------------",true);
+		
 	}
 	
 
@@ -50,6 +52,7 @@ public class VariableInvoiceGeneration extends TestBase {
 	public void Variable(String amount)
 			throws InterruptedException, IOException, BiffException, HeadlessException, AWTException {
 		voucherno2=help1.GenerateVariableInvoice(amount);
+		Reporter.log("--------------------------------------",true);
 		helper1.SAP();
 		//System.out.println(voucherno2);
 		MethodsCalling.driver.navigate().refresh();
@@ -60,11 +63,12 @@ public class VariableInvoiceGeneration extends TestBase {
 	public void Variablenegative(String amount)
 			throws InterruptedException, IOException, BiffException, HeadlessException, AWTException {
 		help1.GenerateVariableInvoicenegativeTesting(amount);
+		Reporter.log("--------------------------------------",true);
 		helper1.SAP();
 	}
 	@Test(priority = 5,dependsOnMethods="Variablenegative")
 	public void PaymentForVariable()
-			throws InterruptedException, IOException, BiffException {
+			throws InterruptedException, IOException, BiffException, HeadlessException, AWTException {
 		help1.paymentForVariable();
 		helper1.SAP();
 		WebElement paymenttable = MethodsCalling.driver.findElement(By.xpath(FinanceVariables.PaymentTable));
@@ -82,6 +86,9 @@ public class VariableInvoiceGeneration extends TestBase {
 				MethodsCalling.driver.findElement(By.xpath(FinanceVariables.payNarration)).sendKeys(FinanceVariables.PaymentNarration);
 				helper1.SAP();
 				MethodsCalling.driver.findElement(By.xpath(FinanceVariables.paybutton)).click();
+				helper1.SAP();
+				method.TakeScreenShotOfWindowPopUp("PaymentForVariableInvoice");
+				Reporter.log("File Name:"+FinanceGlobalVariables.ScreenShotsFileName+"PaymentForVariableInvoice", true);
 				helper1.SAP();
 				Alert alert2 = MethodsCalling.driver.switchTo().alert();
 				Thread.sleep(1000);
@@ -107,12 +114,15 @@ public class VariableInvoiceGeneration extends TestBase {
 		helper1.SAP();
 		MethodsCalling.driver.findElement(By.xpath(FinanceVariables.GridSearchClose)).click(); // close
 																						// button
+		method.TakeScreenShot("VariableInvoicePaymentVoucher");
+		Reporter.log("File Name:"+FinanceGlobalVariables.ScreenShotsFileName+"VariableInvoicePaymentVoucher", true);
 		helper1.SAP();
-		Reporter.log(
-				"Payment Amount: " + MethodsCalling.driver.findElement(By.xpath(FinanceVariables.AmountOndateTabInFinanceVouchers)).getText(),true);
+		helper1.SAP();
+		Reporter.log("Payment Amount: " + MethodsCalling.driver.findElement(By.xpath(FinanceVariables.AmountOndateTabInFinanceVouchers)).getText(),true);
 		Reporter.log("Due Date:  " + MethodsCalling.driver.findElement(By.xpath(FinanceVariables.DuedateTabInFinanceVouchers)).getText(),true);
 		Reporter.log("Voucher no: " + MethodsCalling.driver.findElement(By.xpath(FinanceVariables.VoucherNumberTabInFinanceVouchers)).getText(),true);
 		Reporter.log("Clearing reference:" + MethodsCalling.driver.findElement(By.xpath(FinanceVariables.ClearingReferenceTabInFinanceVouchers)).getText(),true);
+		Reporter.log("--------------------------------------",true);
 		break;
 		}
 	}

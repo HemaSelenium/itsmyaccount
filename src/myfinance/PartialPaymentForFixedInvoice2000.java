@@ -1,20 +1,23 @@
 package myfinance;
 
+import java.awt.AWTException;
+import java.awt.HeadlessException;
 import java.io.File;
 import java.io.IOException;
 import java.util.List;
 
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
+
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.firefox.FirefoxDriver;
+
 import org.testng.Reporter;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 import FinanceCommon.FinanceGlobalVariables;
 import FinanceCommon.FinanceVariables;
+import FinanceCommon.MethodsCalling;
 import FinanceCommon.TestBase;
 import FinanceCommon.Variables;
 import jxl.Cell;
@@ -23,7 +26,7 @@ import jxl.Workbook;
 import jxl.read.biff.BiffException;
 
 public class PartialPaymentForFixedInvoice2000 extends TestBase {
-	//WebDriver driver = new FirefoxDriver();
+	//WebMethodsCalling.driver MethodsCalling.driver = new FirefoxMethodsCalling.driver();
 	logindetails ldr = new logindetails();
 	InvoiceGenerationHelper help1 = new InvoiceGenerationHelpDEMO10();
 		FinancialVouchersHelp help2 = new FinancialVouchersDEMO10();
@@ -36,6 +39,7 @@ public class PartialPaymentForFixedInvoice2000 extends TestBase {
 			Reporter.log("--------------------------------------",true);
 			Reporter.log("Script Name:  Partial payment for Fixed Invoice 2000",true);
 			helper1.SAP();
+			Reporter.log("----------------------------",true);
 		}
 	
 	@Test(priority = 2)
@@ -43,13 +47,14 @@ public class PartialPaymentForFixedInvoice2000 extends TestBase {
 		
 		ldr.adminlogin();
 		helper1.SAP();
+		Reporter.log("----------------------------",true);
 		}
 	
 	@Test(priority = 3, dataProvider = "Partial")
-	public void PartialPayment(String voucherno) throws InterruptedException {
+	public void PartialPayment(String voucherno) throws InterruptedException, HeadlessException, IOException, AWTException {
 		help2.Partialpayment();
 		helper1.SAP();
-		WebElement paymenttable = driver.findElement(By.xpath(FinanceVariables.PaymentTable));
+		WebElement paymenttable = MethodsCalling.driver.findElement(By.xpath(FinanceVariables.PaymentTable));
 		List<WebElement> rows1 = paymenttable.findElements(By.tagName(FinanceVariables.TableRowId));
 		int rowscount = rows1.size();
 		for (rowscount = 1; rowscount < rows1.size(); rowscount++) {
@@ -62,35 +67,38 @@ public class PartialPaymentForFixedInvoice2000 extends TestBase {
 				System.out.println("Paying amount for the voucher: " + voucherno);
 				columns1.get(0).findElement(By.tagName(FinanceVariables.TagnameInputId)).click();
 				helper1.SAP();
-				driver.findElement(By.xpath(FinanceVariables.AdvanceTab)).clear();
+				MethodsCalling.driver.findElement(By.xpath(FinanceVariables.AdvanceTab)).clear();
 				helper1.SAP();
-				driver.findElement(By.xpath(FinanceVariables.AdvanceTab)).sendKeys("300");
+				MethodsCalling.driver.findElement(By.xpath(FinanceVariables.AdvanceTab)).sendKeys("300");
 				helper1.SAP();
-				driver.findElement(By.xpath(FinanceVariables.Narration)).sendKeys(Variables.narration);
+				MethodsCalling.driver.findElement(By.xpath(FinanceVariables.Narration)).sendKeys(Variables.narration);
 				helper1.SAP();
-				driver.findElement(By.xpath(FinanceVariables.paybutton)).click();
+				MethodsCalling.driver.findElement(By.xpath(FinanceVariables.paybutton)).click();
 				helper1.SAP();
-				Alert alert = driver.switchTo().alert();
+				Alert alert = MethodsCalling.driver.switchTo().alert();
 				Thread.sleep(3000);
+				method.TakeScreenShotOfWindowPopUp("PartialFixedInvoice2000");
+				Reporter.log("File Name : "+FinanceGlobalVariables.ScreenShotsFileName+"PartialFixedInvoice2000", true);
+				helper1.SAP();
 				String message = alert.getText();
 				System.out.println(message);
 				alert.dismiss();
 				helper1.SAP();
-				driver.findElement(By.xpath(FinanceVariables.Application)).click();
+				MethodsCalling.driver.findElement(By.xpath(FinanceVariables.Application)).click();
 				helper1.SAP();
-				driver.findElement(By.xpath(FinanceVariables.FinanceVouchers)).click();
+				MethodsCalling.driver.findElement(By.xpath(FinanceVariables.FinanceVouchers)).click();
 				helper1.SAP();
-				driver.findElement(By.id(FinanceVariables.GridSearch)).click();
+				MethodsCalling.driver.findElement(By.xpath(FinanceVariables.GridSearch)).click();
 				helper1.SAP();
-				driver.findElement(By.xpath(FinanceVariables.GridSearchType)).click();
+				MethodsCalling.driver.findElement(By.xpath(FinanceVariables.GridSearchType)).click();
 				helper1.SAP();
-				driver.findElement(By.id(FinanceVariables.GridSearchTxtboxId)).sendKeys(voucherno);
+				MethodsCalling.driver.findElement(By.id(FinanceVariables.GridSearchTxtboxId)).sendKeys(voucherno);
 				helper1.SAP();
-				driver.findElement(By.id(FinanceVariables.GridSeachFindid)).click();// find button
+				MethodsCalling.driver.findElement(By.id(FinanceVariables.GridSeachFindid)).click();// find button
 				helper1.SAP();
-				driver.findElement(By.xpath(FinanceVariables.GridSearchClose)).click(); 
+				MethodsCalling.driver.findElement(By.xpath(FinanceVariables.GridSearchClose)).click(); 
 				helper1.SAP();																				
-				
+				Reporter.log("----------------------------",true);
 				
 				break;
 			}

@@ -9,16 +9,18 @@ import java.util.List;
 
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
+
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.firefox.FirefoxDriver;
+
 import org.testng.Reporter;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 import FinanceCommon.FinanceGlobalVariables;
 import FinanceCommon.FinanceVariables;
+import FinanceCommon.MethodsCalling;
 import FinanceCommon.TestBase;
+import FinanceCommon.Variables;
 import jxl.Cell;
 import jxl.Sheet;
 import jxl.Workbook;
@@ -30,9 +32,10 @@ import jxl.write.WriteException;
 import jxl.write.biff.RowsExceededException;
 
 public class VariableInvoiceGenerationWithExcelUpload extends TestBase{
-	//WebDriver driver = new FirefoxDriver();
+	//WebMethodsCalling.driver MethodsCalling.driver = new FirefoxMethodsCalling.driver();
 	logindetails ldr = new logindetails();
 		String voucherno2;
+		 String choose="yes";
 	InvoiceGenerationHelper help1 = new InvoiceGenerationHelpDEMO10();
 	protected static FinanceVariables fin=new FinanceVariables();
 	
@@ -50,16 +53,53 @@ public class VariableInvoiceGenerationWithExcelUpload extends TestBase{
 		helper1.SAP();
 	}
 	
-	@Test(priority = 3,dataProvider="VariableInvoice",dependsOnMethods="Login")
+	@Test(priority = 3,dependsOnMethods="Login")
+	public void Tax() throws BiffException, InterruptedException, IOException{
+		MethodsCalling.driver.findElement(By.xpath(FinanceVariables.Application)).click();
+		helper1.SAP();
+		MethodsCalling.driver.findElement(By.xpath(FinanceVariables.AdminProfile)).click();
+		helper1.SAP();
+		
+		WebElement checkbox = MethodsCalling.driver.findElement(By.xpath(FinanceVariables.TaxRadioButtonInAdminProfile));
+		String selectcheckbox = "yes";
+		if (selectcheckbox.equals(choose)) {
+			if (checkbox.isSelected() == true) {
+				checkbox.click();
+				helper1.SAP();
+				MethodsCalling.driver.findElement(By.xpath(FinanceVariables.SaveButtonInAdmin)).click();
+				helper1.SAP();
+				Alert alert = MethodsCalling.driver.switchTo().alert();
+				alert.accept();
+				helper1.SAP();
+				ldr.logout();
+				
+
+			} else {
+				helper1.SAP();
+				ldr.logout();
+			}
+		} 
+		
+		
+	}
+		
+	
+	
+	@Test(priority = 4,dependsOnMethods="Tax")
+	public void log() throws BiffException, InterruptedException, IOException{
+		ldr.adminlogin();
+		helper1.SAP();
+	}
+	@Test(priority = 5,dataProvider="VariableInvoice",dependsOnMethods="Login")
 	public void Variable(String amount)
 			throws InterruptedException, IOException, BiffException, HeadlessException, AWTException {
 		voucherno2=help1.GenerateVariableInvoice1(amount);
 		helper1.SAP();
-		driver.navigate().refresh();
+		MethodsCalling.driver.navigate().refresh();
 		helper1.SAP();
 	}
 
-	@Test(priority = 4)
+	@Test(priority = 6)
 	public void writeVoucherno()
 			throws RowsExceededException, WriteException, IOException, BiffException, InterruptedException {
 		
@@ -75,7 +115,7 @@ public class VariableInvoiceGenerationWithExcelUpload extends TestBase{
 	}
 	
 	
-	@Test(priority = 5)
+	@Test(priority = 7)
 	public void ManualChecking() throws InterruptedException, IOException, BiffException{
 		Reporter.log("Items to be checked Manually",true);
 		Reporter.log("----------------------------",true);

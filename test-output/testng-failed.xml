@@ -3,16 +3,18 @@
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
   <test name="Default test(failed)">
     <classes>
-      <class name="dashboard.AdminAddEditDeletecomplaints">
+      <class name="myfinance.VariableInvoiceGenerationWithTax">
         <methods>
-          <include name="AddComplaints"/>
-          <include name="EditComplaint"/>
-          <include name="Login"/>
-          <include name="Results"/>
           <include name="tearDown"/>
-          <include name="setUp"/>
+          <include name="Tax"/>
+          <include name="log"/>
+          <include name="setup"/>
+          <include name="ManualChecking"/>
+          <include name="generate" invocation-numbers="0"/>
+          <include name="writeVoucherno"/>
+          <include name="Login"/>
         </methods>
-      </class> <!-- dashboard.AdminAddEditDeletecomplaints -->
+      </class> <!-- myfinance.VariableInvoiceGenerationWithTax -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

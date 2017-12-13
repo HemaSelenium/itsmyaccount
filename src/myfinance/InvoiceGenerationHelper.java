@@ -87,13 +87,9 @@ public class InvoiceGenerationHelper extends TestBase {
 		helper1.SAP();
 		MethodsCalling.driver.findElement(By.xpath(FinanceVariables.InvoiceGenerateFinal)).click(); // generate invoice
 		helper1.SAP();	
-		
 		method.TakeScreenShotOfWindowPopUp("FixedInvoice");
 		Reporter.log("File Name : "+FinanceGlobalVariables.ScreenShotsFileName+"FixedInvoice", true);
 		helper1.SAP();
-		
-		
-		
 		WebDriverWait wait = new WebDriverWait(MethodsCalling.driver, 50);
 		wait.until(ExpectedConditions.alertIsPresent());
 		Alert alert = MethodsCalling.driver.switchTo().alert();
@@ -383,8 +379,8 @@ public class InvoiceGenerationHelper extends TestBase {
 		helper1.SAP();
 		String voucherno1 = splitmessage;
 		helper1.SAP();
-		ldr.SearchVoucherno(splitmessage);
-		helper1.SAP();
+		/*ldr.SearchVoucherno(splitmessage);
+		helper1.SAP();*/
 		return voucherno1;
 	}
 	
@@ -571,6 +567,7 @@ MethodsCalling.driver.findElement(By.xpath(FinanceVariables.Vouchertype)).clear(
 		helper1.SAP();
 		MethodsCalling.driver.findElement(By.id(FinanceVariables.FinGo)).click();
 		helper1.SAP();
+		helper1.SAP();
 		method.TakeScreenShot("simulatestep10");
 		Reporter.log("File Name : "+FinanceGlobalVariables.ScreenShotsFileName+"simulatestep10", true);
 		helper1.SAP();
@@ -732,7 +729,7 @@ MethodsCalling.driver.findElement(By.xpath(FinanceVariables.Vouchertype)).clear(
 		helper1.SAP();
 		MethodsCalling.driver.findElement(By.xpath(FinanceVariables.InvoiceTax2)).click();
 		helper1.SAP();
-		MethodsCalling.driver.findElement(By.xpath(FinanceVariables.Narration)).sendKeys(Variables.Narrstion);
+		MethodsCalling.driver.findElement(By.xpath(FinanceVariables.VariableNarration)).sendKeys(Variables.Narrstion);
 		helper1.SAP();
 		MethodsCalling.driver.findElement(By.id(FinanceVariables.InvoiceGenerate)).click(); // generate button
 		helper1.SAP();
@@ -741,7 +738,7 @@ MethodsCalling.driver.findElement(By.xpath(FinanceVariables.Vouchertype)).clear(
 		Alert alert = MethodsCalling.driver.switchTo().alert();
 		alert.accept();
 		helper1.SAP();
-		MethodsCalling.driver.findElement(By.id(FinanceVariables.InvoiceGenerateFinal)).click();// generate button
+		MethodsCalling.driver.findElement(By.xpath(FinanceVariables.InvoiceGenerateFinal)).click();// generate button
 		helper1.SAP();
 		WebDriverWait wait = new WebDriverWait(MethodsCalling.driver, 50);
 		wait.until(ExpectedConditions.alertIsPresent());

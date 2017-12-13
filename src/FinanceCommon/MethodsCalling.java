@@ -408,10 +408,10 @@ public void AdminLogin() throws InterruptedException{
 		Calendar cal = Calendar.getInstance();
 
 		   
-	    cal.add(Calendar.YEAR, -1);
+	    cal.add(Calendar.YEAR, -2);
 	    SimpleDateFormat form= new SimpleDateFormat("dd-MM-YYYY");
 	    String startDate=form.format(cal.getTime());
-	    //System.out.println(startDate);
+	    System.out.println(startDate);
 		return startDate;
 		 
 	
@@ -527,14 +527,14 @@ public void userLoginWithScreenShotsBeforeProcess1() throws InterruptedException
 		Thread.sleep(3000);
 		method.TakeScreenShot("DashboardBeforeStart");
 		Reporter.log("File Name : "+FinanceGlobalVariables.ScreenShotsFileName+"DashboardBeforeStart", true);
-		
+		Reporter.log("--------------------------------------",true);
 		//FileUtils.copyFile(screenshot, new File(path));
 		Thread.sleep(3000);
 		String StartingAmount = driver.findElement(By.xpath(FinanceVariables.AmountInMemberDashboard))
 				.getText();
 		Thread.sleep(3000);
 		Reporter.log("Member Balance Before Start - Dash board:  " + StartingAmount,true);
-		
+		Reporter.log("--------------------------------------",true);
 		Thread.sleep(3000);
 		driver.findElement(By.xpath(FinanceVariables.Application)).click();
 		Thread.sleep(3000);
@@ -545,12 +545,12 @@ public void userLoginWithScreenShotsBeforeProcess1() throws InterruptedException
 		//File screenshot1 = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
 		method.TakeScreenShot("MyAccountBeforeStart");
 		Reporter.log("File Name : "+FinanceGlobalVariables.ScreenShotsFileName+"MyAccountBeforeStart", true);
-		
+		Reporter.log("--------------------------------------",true);
 		
 		
 		Reporter.log("", true);
 		Reporter.log("Member Balance Before Start - My Account:  " + NetBalance,true);
-		
+		Reporter.log("--------------------------------------",true);
 
 	}
 	
@@ -573,12 +573,12 @@ public void userLoginWithScreenShotsBeforeProcess1() throws InterruptedException
 				
 		method.TakeScreenShot("DashboardAfterProcess");
 		Reporter.log("File Name : "+FinanceGlobalVariables.ScreenShotsFileName+"DashboardAfterProcess", true);
-		
+		Reporter.log("--------------------------------------",true);
 		String StaritngAmount = driver.findElement(By.xpath(FinanceVariables.AmountInMemberDashboard))
 				.getText();
 		Thread.sleep(3000);
 		Reporter.log("Member Balance After Process - Dash board:  " + StaritngAmount,true);
-		
+		Reporter.log("--------------------------------------",true);
 		Thread.sleep(3000);
 		driver.findElement(By.xpath(FinanceVariables.Application)).click();
 		Thread.sleep(3000);
@@ -589,10 +589,10 @@ public void userLoginWithScreenShotsBeforeProcess1() throws InterruptedException
 		
 		method.TakeScreenShot("MyAccountAfterProcess");
 		Reporter.log("File Name : "+FinanceGlobalVariables.ScreenShotsFileName+"MyAccountAfterProcess", true);
-		
+		Reporter.log("--------------------------------------",true);
 		
 		Reporter.log("Member Balance After Process - My Account:  " + NetBalance,true);
-		
+		Reporter.log("--------------------------------------",true);
 	}
 	
 	

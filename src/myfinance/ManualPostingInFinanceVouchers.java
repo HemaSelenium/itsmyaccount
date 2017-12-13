@@ -1,13 +1,14 @@
 package myfinance;
 
+import java.awt.AWTException;
+import java.awt.HeadlessException;
 import java.io.File;
 import java.io.IOException;
 
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
+
 import org.testng.Reporter;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
@@ -22,7 +23,7 @@ import jxl.Workbook;
 import jxl.read.biff.BiffException;
 
 public class ManualPostingInFinanceVouchers extends TestBase {
-	//WebDriver driver = new FirefoxDriver();
+	//WebMethodsCalling.driver MethodsCalling.driver = new FirefoxMethodsCalling.driver();
 	logindetails ldr = new logindetails();
 	 boolean result=true;
 	 protected static MethodsCalling method=new MethodsCalling();
@@ -46,42 +47,45 @@ public void Login() throws InterruptedException {
 }
 	
 	@Test(priority = 3,dataProvider="Manual",dependsOnMethods="Login")
-	public void Manualposting(String amount) throws InterruptedException {
-		driver.findElement(By.xpath(FinanceVariables.Application)).click();
+	public void Manualposting(String amount) throws InterruptedException, IOException, HeadlessException, AWTException {
+		MethodsCalling.driver.findElement(By.xpath(FinanceVariables.Application)).click();
 		helper1.SAP();
-		driver.findElement(By.xpath(FinanceVariables.FinanceVouchers)).click();
+		MethodsCalling.driver.findElement(By.xpath(FinanceVariables.FinanceVouchers)).click();
 		helper1.SAP();
-		driver.findElement(By.xpath(FinanceVariables.AddmanualVoucher)).click();
+		MethodsCalling.driver.findElement(By.xpath(FinanceVariables.AddmanualVoucher)).click();
 		helper1.SAP();
-		driver.findElement(By.xpath(FinanceVariables.VoucherDate)).clear();
+		MethodsCalling.driver.findElement(By.xpath(FinanceVariables.VoucherDate)).clear();
 		helper1.SAP();
-		driver.findElement(By.xpath(FinanceVariables.VoucherDate)).sendKeys(method.PresentdateMinus5());
+		MethodsCalling.driver.findElement(By.xpath(FinanceVariables.VoucherDate)).sendKeys(method.PresentdateMinus5());
 		helper1.SAP();
-		driver.findElement(By.xpath(FinanceVariables.VoucherDate)).sendKeys(Keys.ENTER);
+		MethodsCalling.driver.findElement(By.xpath(FinanceVariables.VoucherDate)).sendKeys(Keys.ENTER);
 		helper1.SAP();
-		driver.findElement(By.xpath(FinanceVariables.ManualVoucherGLtxt)).clear();
+		MethodsCalling.driver.findElement(By.xpath(FinanceVariables.ManualVoucherGLtxt)).clear();
 		helper1.SAP();
-		driver.findElement(By.xpath(FinanceVariables.ManualVoucherGLtxt)).sendKeys(FinanceVariables.TravelGL);
+		MethodsCalling.driver.findElement(By.xpath(FinanceVariables.ManualVoucherGLtxt)).sendKeys(FinanceVariables.TravelGL);
 	    helper1.SAP();
-	    driver.findElement(By.xpath(FinanceVariables.VoucherDate)).sendKeys(Keys.ENTER);
+	    MethodsCalling.driver.findElement(By.xpath(FinanceVariables.VoucherDate)).sendKeys(Keys.ENTER);
 		helper1.SAP();
-	    driver.findElement(By.xpath(FinanceVariables.DebitPath)).sendKeys(Keys.BACK_SPACE);
+	    MethodsCalling.driver.findElement(By.xpath(FinanceVariables.DebitPath)).sendKeys(Keys.BACK_SPACE);
 		helper1.SAP();
-		driver.findElement(By.xpath(FinanceVariables.DebitPath)).sendKeys(Keys.BACK_SPACE);
+		MethodsCalling.driver.findElement(By.xpath(FinanceVariables.DebitPath)).sendKeys(Keys.BACK_SPACE);
 		helper1.SAP();
-		driver.findElement(By.xpath(FinanceVariables.DebitPath)).sendKeys(Keys.BACK_SPACE);
+		MethodsCalling.driver.findElement(By.xpath(FinanceVariables.DebitPath)).sendKeys(Keys.BACK_SPACE);
 		helper1.SAP();
-		driver.findElement(By.xpath(FinanceVariables.DebitPath)).sendKeys(Keys.BACK_SPACE);
+		MethodsCalling.driver.findElement(By.xpath(FinanceVariables.DebitPath)).sendKeys(Keys.BACK_SPACE);
 		helper1.SAP();
-		driver.findElement(By.xpath(FinanceVariables.DebitPath)).sendKeys(amount);
+		MethodsCalling.driver.findElement(By.xpath(FinanceVariables.DebitPath)).sendKeys(amount);
 		helper1.SAP();
-		driver.findElement(By.xpath(FinanceVariables.ExtendButton)).click();
+		MethodsCalling.driver.findElement(By.xpath(FinanceVariables.ExtendButton)).click();
 		helper1.SAP();
-		driver.findElement(By.xpath(FinanceVariables.GLDescriptionPath)).sendKeys(FinanceVariables.narration);
+		MethodsCalling.driver.findElement(By.xpath(FinanceVariables.GLDescriptionPath)).sendKeys(FinanceVariables.narration);
 		helper1.SAP();
-		driver.findElement(By.xpath(FinanceVariables.SaveVoucher)).click();
+		MethodsCalling.driver.findElement(By.xpath(FinanceVariables.SaveVoucher)).click();
 		helper1.SAP();
-		Alert alert2 = driver.switchTo().alert();
+		method.TakeScreenShotOfWindowPopUp("manualPostingFor300");
+		Reporter.log("File Name :"+FinanceGlobalVariables.ScreenShotsFileName+"manualPostingFor300", true);
+		helper1.SAP();
+		Alert alert2 = MethodsCalling.driver.switchTo().alert();
 		helper1.SAP();
 		String message2 = alert2.getText();
 		Reporter.log(message2,true);
@@ -95,25 +99,31 @@ public void Login() throws InterruptedException {
 		alert2.accept();
 		helper1.SAP();
 		
-		driver.findElement(By.xpath(FinanceVariables.GridSearch)).click();
+		MethodsCalling.driver.findElement(By.xpath(FinanceVariables.GridSearch)).click();
 		helper1.SAP();
 		
-		driver.findElement(By.id(FinanceVariables.FacilityGridSearchTxtbox)).sendKeys(message4);
+		MethodsCalling.driver.findElement(By.id(FinanceVariables.FacilityGridSearchTxtbox)).sendKeys(message4);
 		helper1.SAP();
-		driver.findElement(By.id(FinanceVariables.GridSeachFindid)).click();// find button
+		MethodsCalling.driver.findElement(By.id(FinanceVariables.GridSeachFindid)).click();// find button
 		helper1.SAP();
-		driver.findElement(By.xpath(FinanceVariables.GridSearchClose)).click();
+		MethodsCalling.driver.findElement(By.xpath(FinanceVariables.GridSearchClose)).click();
 		helper1.SAP();
-		driver.navigate().refresh();
+		method.TakeScreenShot("manualentryfor300");
+		Reporter.log("File Name :"+FinanceGlobalVariables.ScreenShotsFileName+"manualentryfor300", true);
 		helper1.SAP();
-		driver.findElement(By.xpath(FinanceVariables.Export)).click();
+		MethodsCalling.driver.navigate().refresh();
 		helper1.SAP();
- 	   driver.findElement(By.xpath(FinanceVariables.Exportpdf)).click();
+		MethodsCalling.driver.findElement(By.xpath(FinanceVariables.Export)).click();
+		helper1.SAP();
+ 	   MethodsCalling.driver.findElement(By.xpath(FinanceVariables.Exportpdf)).click();
  	  helper1.SAP();
+ 	 method.TakeScreenShot("manualPostingFor300pdf");
+		Reporter.log("File Name:"+FinanceGlobalVariables.ScreenShotsFileName+"manualPostingFor300pdf", true);
+				helper1.SAP();
  	 
 	}
 	
-	@Test(priority = 4,dependsOnMethods="UserLoginAgain")
+	@Test(priority = 4,dependsOnMethods="Manualposting")
 	public void ManualChecking() throws InterruptedException, IOException, BiffException{
 		Reporter.log("Items to be checked Manually",true);
 		Reporter.log("----------------------------",true);

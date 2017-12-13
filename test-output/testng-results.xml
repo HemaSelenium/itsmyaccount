@@ -1,48 +1,80 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="3" failed="1" ignored="0" total="4" passed="0">
+<testng-results skipped="2" failed="1" ignored="0" total="7" passed="4">
   <reporter-output>
     <line>
-      <![CDATA[Script Name:Admin---->Application--->MyComplaints]]>
+      <![CDATA[Test Script:  FinanceTestingIMA_TC_020]]>
     </line>
     <line>
-      <![CDATA[----------------------------------------------]]>
+      <![CDATA[--------------------------------------]]>
     </line>
     <line>
-      <![CDATA[ ]]>
+      <![CDATA[Script Name: Variable Invoice Generation With Tax]]>
+    </line>
+    <line>
+      <![CDATA[Invoices from OIG-110001808 to OIG-110001808 (1 document) successfully generated
+Emails and SMS are successfully sent]]>
     </line>
   </reporter-output>
-  <suite name="Default suite" duration-ms="40667" started-at="2017-12-09T08:46:39Z" finished-at="2017-12-09T08:47:19Z">
+  <suite name="Default suite" duration-ms="246661" started-at="2017-12-13T07:25:53Z" finished-at="2017-12-13T07:29:59Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="40667" started-at="2017-12-09T08:46:39Z" finished-at="2017-12-09T08:47:19Z">
-      <class name="dashboard.AdminAddEditDeletecomplaints">
-        <test-method status="PASS" signature="setUp()[pri:0, instance:dashboard.AdminAddEditDeletecomplaints@7494e528]" name="setUp" is-config="true" duration-ms="20965" started-at="2017-12-09T14:16:39Z" finished-at="2017-12-09T14:17:00Z">
+    <test name="Default test" duration-ms="246661" started-at="2017-12-13T07:25:53Z" finished-at="2017-12-13T07:29:59Z">
+      <class name="myfinance.VariableInvoiceGenerationWithTax">
+        <test-method status="PASS" signature="setup()[pri:0, instance:myfinance.VariableInvoiceGenerationWithTax@6fd02e5]" name="setup" is-config="true" duration-ms="6705" started-at="2017-12-13T12:55:53Z" finished-at="2017-12-13T12:55:59Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- setUp -->
-        <test-method status="FAIL" signature="Login()[pri:1, instance:dashboard.AdminAddEditDeletecomplaints@7494e528]" name="Login" duration-ms="17823" started-at="2017-12-09T14:17:00Z" finished-at="2017-12-09T14:17:18Z">
-          <exception class="org.openqa.selenium.NoSuchElementException">
+        </test-method> <!-- setup -->
+        <test-method status="PASS" signature="ScriptName()[pri:1, instance:myfinance.VariableInvoiceGenerationWithTax@6fd02e5]" name="ScriptName" duration-ms="4012" started-at="2017-12-13T12:55:59Z" finished-at="2017-12-13T12:56:03Z">
+          <reporter-output>
+            <line>
+              <![CDATA[Test Script:  FinanceTestingIMA_TC_020]]>
+            </line>
+            <line>
+              <![CDATA[--------------------------------------]]>
+            </line>
+            <line>
+              <![CDATA[Script Name: Variable Invoice Generation With Tax]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- ScriptName -->
+        <test-method status="PASS" signature="Login()[pri:2, instance:myfinance.VariableInvoiceGenerationWithTax@6fd02e5]" name="Login" duration-ms="45762" started-at="2017-12-13T12:56:03Z" finished-at="2017-12-13T12:56:49Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- Login -->
+        <test-method status="PASS" signature="Tax()[pri:3, instance:myfinance.VariableInvoiceGenerationWithTax@6fd02e5]" name="Tax" duration-ms="18548" started-at="2017-12-13T12:56:49Z" depends-on-methods="myfinance.VariableInvoiceGenerationWithTax.Login" finished-at="2017-12-13T12:57:08Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- Tax -->
+        <test-method status="PASS" signature="log()[pri:4, instance:myfinance.VariableInvoiceGenerationWithTax@6fd02e5]" name="log" duration-ms="35963" started-at="2017-12-13T12:57:08Z" depends-on-methods="myfinance.VariableInvoiceGenerationWithTax.Tax" finished-at="2017-12-13T12:57:44Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- log -->
+        <test-method status="FAIL" signature="generate(java.lang.String)[pri:5, instance:myfinance.VariableInvoiceGenerationWithTax@6fd02e5]" name="generate" duration-ms="132842" started-at="2017-12-13T12:57:44Z" data-provider="VariableInvoice" depends-on-methods="myfinance.VariableInvoiceGenerationWithTax.log" finished-at="2017-12-13T12:59:57Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[550]]>
+              </value>
+            </param>
+          </params>
+          <exception class="org.openqa.selenium.WebDriverException">
             <message>
-              <![CDATA[Unable to locate element: {"method":"xpath","selector":".//*[@id='bs-example-navbar-collapse-1']/ul/li[2]/span/a"}
-Command duration or timeout: 33 milliseconds
-For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
+              <![CDATA[Element is not clickable at point (494.95001220703125, 238.4166717529297). Other element would receive the click: <div style="position: fixed; z-index: 10000; background: rgb(0, 0, 0) none repeat scroll 0% 0%; opacity: 0.5; width: 100%; height: 100%; top: 0.000012207px; left: 0px; display: block;" class="loading" id="loading"></div>
+Command duration or timeout: 88 milliseconds
 Build info: version: '2.53.1', revision: 'a36b8b1', time: '2016-06-30 17:32:46'
 System info: host: 'IMA-PC', ip: '192.168.1.105', os.name: 'Windows 7', os.arch: 'amd64', os.version: '6.1', java.version: '1.8.0_131'
 Driver info: org.openqa.selenium.firefox.FirefoxDriver
 Capabilities [{applicationCacheEnabled=true, rotatable=false, handlesAlerts=true, databaseEnabled=true, version=46.0.1, platform=WINDOWS, nativeEvents=false, acceptSslCerts=true, webStorageEnabled=true, locationContextEnabled=true, browserName=firefox, takesScreenshot=true, javascriptEnabled=true, cssSelectorsEnabled=true}]
-Session ID: 1626e257-f4d1-447d-b12a-49ef0538deb0
-*** Element info: {Using=xpath, value=.//*[@id='bs-example-navbar-collapse-1']/ul/li[2]/span/a}]]>
+Session ID: 7b17cab4-ee48-403c-82c0-7147d320024b]]>
             </message>
             <full-stacktrace>
-              <![CDATA[org.openqa.selenium.NoSuchElementException: Unable to locate element: {"method":"xpath","selector":".//*[@id='bs-example-navbar-collapse-1']/ul/li[2]/span/a"}
-Command duration or timeout: 33 milliseconds
-For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
+              <![CDATA[org.openqa.selenium.WebDriverException: Element is not clickable at point (494.95001220703125, 238.4166717529297). Other element would receive the click: <div style="position: fixed; z-index: 10000; background: rgb(0, 0, 0) none repeat scroll 0% 0%; opacity: 0.5; width: 100%; height: 100%; top: 0.000012207px; left: 0px; display: block;" class="loading" id="loading"></div>
+Command duration or timeout: 88 milliseconds
 Build info: version: '2.53.1', revision: 'a36b8b1', time: '2016-06-30 17:32:46'
 System info: host: 'IMA-PC', ip: '192.168.1.105', os.name: 'Windows 7', os.arch: 'amd64', os.version: '6.1', java.version: '1.8.0_131'
 Driver info: org.openqa.selenium.firefox.FirefoxDriver
 Capabilities [{applicationCacheEnabled=true, rotatable=false, handlesAlerts=true, databaseEnabled=true, version=46.0.1, platform=WINDOWS, nativeEvents=false, acceptSslCerts=true, webStorageEnabled=true, locationContextEnabled=true, browserName=firefox, takesScreenshot=true, javascriptEnabled=true, cssSelectorsEnabled=true}]
-Session ID: 1626e257-f4d1-447d-b12a-49ef0538deb0
-*** Element info: {Using=xpath, value=.//*[@id='bs-example-navbar-collapse-1']/ul/li[2]/span/a}
+Session ID: 7b17cab4-ee48-403c-82c0-7147d320024b
 	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
 	at sun.reflect.NativeConstructorAccessorImpl.newInstance(Unknown Source)
 	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
@@ -50,12 +82,11 @@ Session ID: 1626e257-f4d1-447d-b12a-49ef0538deb0
 	at org.openqa.selenium.remote.ErrorHandler.createThrowable(ErrorHandler.java:206)
 	at org.openqa.selenium.remote.ErrorHandler.throwIfResponseFailed(ErrorHandler.java:158)
 	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:678)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:363)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElementByXPath(RemoteWebDriver.java:500)
-	at org.openqa.selenium.By$ByXPath.findElement(By.java:361)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:355)
-	at common.SeleniumHelper.ClickByXpath(SeleniumHelper.java:124)
-	at dashboard.AdminAddEditDeletecomplaints.Login(AdminAddEditDeletecomplaints.java:30)
+	at org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:327)
+	at org.openqa.selenium.remote.RemoteWebElement.click(RemoteWebElement.java:85)
+	at myfinance.logindetails.SearchVoucherno(logindetails.java:102)
+	at myfinance.InvoiceGenerationHelper.VariableInvoiceWithTax(InvoiceGenerationHelper.java:758)
+	at myfinance.VariableInvoiceGenerationWithTax.generate(VariableInvoiceGenerationWithTax.java:63)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
@@ -81,89 +112,23 @@ Session ID: 1626e257-f4d1-447d-b12a-49ef0538deb0
 	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:132)
 	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:230)
 	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:76)
-Caused by: org.openqa.selenium.NoSuchElementException: Unable to locate element: {"method":"xpath","selector":".//*[@id='bs-example-navbar-collapse-1']/ul/li[2]/span/a"}
-For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
-Build info: version: '2.53.1', revision: 'a36b8b1', time: '2016-06-30 17:32:46'
-System info: host: 'IMA-PC', ip: '192.168.1.105', os.name: 'Windows 7', os.arch: 'amd64', os.version: '6.1', java.version: '1.8.0_131'
-Driver info: driver.version: unknown
-	at <anonymous class>.FirefoxDriver.prototype.findElementInternal_(file:///C:/Users/IMA/AppData/Local/Temp/anonymous7944034265194675652webdriver-profile/extensions/fxdriver@googlecode.com/components/driver-component.js:10770)
-	at <anonymous class>.FirefoxDriver.prototype.findElement(file:///C:/Users/IMA/AppData/Local/Temp/anonymous7944034265194675652webdriver-profile/extensions/fxdriver@googlecode.com/components/driver-component.js:10779)
-	at <anonymous class>.DelayedCommand.prototype.executeInternal_/h(file:///C:/Users/IMA/AppData/Local/Temp/anonymous7944034265194675652webdriver-profile/extensions/fxdriver@googlecode.com/components/command-processor.js:12661)
-	at <anonymous class>.DelayedCommand.prototype.executeInternal_(file:///C:/Users/IMA/AppData/Local/Temp/anonymous7944034265194675652webdriver-profile/extensions/fxdriver@googlecode.com/components/command-processor.js:12666)
-	at <anonymous class>.DelayedCommand.prototype.execute/<(file:///C:/Users/IMA/AppData/Local/Temp/anonymous7944034265194675652webdriver-profile/extensions/fxdriver@googlecode.com/components/command-processor.js:12608)
 ]]>
             </full-stacktrace>
-          </exception> <!-- org.openqa.selenium.NoSuchElementException -->
+          </exception> <!-- org.openqa.selenium.WebDriverException -->
           <reporter-output>
             <line>
-              <![CDATA[Script Name:Admin---->Application--->MyComplaints]]>
-            </line>
-            <line>
-              <![CDATA[----------------------------------------------]]>
-            </line>
-            <line>
-              <![CDATA[ ]]>
+              <![CDATA[Invoices from OIG-110001808 to OIG-110001808 (1 document) successfully generated
+Emails and SMS are successfully sent]]>
             </line>
           </reporter-output>
-        </test-method> <!-- Login -->
-        <test-method status="SKIP" signature="AddComplaints(java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:2, instance:dashboard.AdminAddEditDeletecomplaints@7494e528]" name="AddComplaints" duration-ms="0" started-at="2017-12-09T14:17:18Z" data-provider="CreateComplaint" finished-at="2017-12-09T14:17:18Z">
-          <exception class="java.lang.RuntimeException">
-            <message>
-              <![CDATA[java.io.FileNotFoundException: C:\Users\Its my Account\Desktop\VariablesUsedForSelenium.xls (The system cannot find the path specified)]]>
-            </message>
-            <full-stacktrace>
-              <![CDATA[java.lang.RuntimeException: java.io.FileNotFoundException: C:\Users\Its my Account\Desktop\VariablesUsedForSelenium.xls (The system cannot find the path specified)
-	at org.testng.internal.MethodInvocationHelper.invokeMethodNoCheckedException(MethodInvocationHelper.java:49)
-	at org.testng.internal.MethodInvocationHelper.invokeDataProvider(MethodInvocationHelper.java:115)
-	at org.testng.internal.Parameters.handleParameters(Parameters.java:509)
-	at org.testng.internal.Invoker.handleParameters(Invoker.java:1308)
-	at org.testng.internal.Invoker.createParameters(Invoker.java:1036)
-	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1126)
-	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:126)
-	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
-	at org.testng.TestRunner.privateRun(TestRunner.java:744)
-	at org.testng.TestRunner.run(TestRunner.java:602)
-	at org.testng.SuiteRunner.runTest(SuiteRunner.java:380)
-	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:375)
-	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:340)
-	at org.testng.SuiteRunner.run(SuiteRunner.java:289)
-	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
-	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
-	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1301)
-	at org.testng.TestNG.runSuitesLocally(TestNG.java:1226)
-	at org.testng.TestNG.runSuites(TestNG.java:1144)
-	at org.testng.TestNG.run(TestNG.java:1115)
-	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:132)
-	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:230)
-	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:76)
-Caused by: java.io.FileNotFoundException: C:\Users\Its my Account\Desktop\VariablesUsedForSelenium.xls (The system cannot find the path specified)
-	at java.io.FileInputStream.open0(Native Method)
-	at java.io.FileInputStream.open(Unknown Source)
-	at java.io.FileInputStream.<init>(Unknown Source)
-	at jxl.Workbook.getWorkbook(Workbook.java:213)
-	at jxl.Workbook.getWorkbook(Workbook.java:198)
-	at common.Dataproviders.CreateComplaint(Dataproviders.java:257)
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
-	at java.lang.reflect.Method.invoke(Unknown Source)
-	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:108)
-	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:55)
-	at org.testng.internal.MethodInvocationHelper.invokeMethodNoCheckedException(MethodInvocationHelper.java:45)
-	... 22 more
-]]>
-            </full-stacktrace>
-          </exception> <!-- java.lang.RuntimeException -->
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- AddComplaints -->
-        <test-method status="SKIP" signature="EditComplaint(java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:3, instance:dashboard.AdminAddEditDeletecomplaints@7494e528]" name="EditComplaint" duration-ms="0" started-at="2017-12-09T14:17:18Z" data-provider="EditComplaints" depends-on-methods="dashboard.AdminAddEditDeletecomplaints.AddComplaints" finished-at="2017-12-09T14:17:18Z">
+        </test-method> <!-- generate -->
+        <test-method status="SKIP" signature="writeVoucherno()[pri:6, instance:myfinance.VariableInvoiceGenerationWithTax@6fd02e5]" name="writeVoucherno" duration-ms="0" started-at="2017-12-13T12:59:57Z" depends-on-methods="myfinance.VariableInvoiceGenerationWithTax.generate" finished-at="2017-12-13T12:59:57Z">
           <exception class="java.lang.Throwable">
             <message>
-              <![CDATA[Method AdminAddEditDeletecomplaints.EditComplaint(java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:3, instance:dashboard.AdminAddEditDeletecomplaints@7494e528] depends on not successfully finished methods]]>
+              <![CDATA[Method VariableInvoiceGenerationWithTax.writeVoucherno()[pri:6, instance:myfinance.VariableInvoiceGenerationWithTax@6fd02e5] depends on not successfully finished methods]]>
             </message>
             <full-stacktrace>
-              <![CDATA[java.lang.Throwable: Method AdminAddEditDeletecomplaints.EditComplaint(java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:3, instance:dashboard.AdminAddEditDeletecomplaints@7494e528] depends on not successfully finished methods
+              <![CDATA[java.lang.Throwable: Method VariableInvoiceGenerationWithTax.writeVoucherno()[pri:6, instance:myfinance.VariableInvoiceGenerationWithTax@6fd02e5] depends on not successfully finished methods
 	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1084)
 	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:126)
 	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
@@ -187,14 +152,14 @@ Caused by: java.io.FileNotFoundException: C:\Users\Its my Account\Desktop\Variab
           </exception> <!-- java.lang.Throwable -->
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- EditComplaint -->
-        <test-method status="SKIP" signature="Results()[pri:3, instance:dashboard.AdminAddEditDeletecomplaints@7494e528]" name="Results" duration-ms="0" started-at="2017-12-09T14:17:18Z" depends-on-methods="dashboard.AdminAddEditDeletecomplaints.EditComplaint" finished-at="2017-12-09T14:17:18Z">
+        </test-method> <!-- writeVoucherno -->
+        <test-method status="SKIP" signature="ManualChecking()[pri:7, instance:myfinance.VariableInvoiceGenerationWithTax@6fd02e5]" name="ManualChecking" duration-ms="0" started-at="2017-12-13T12:59:57Z" depends-on-methods="myfinance.VariableInvoiceGenerationWithTax.writeVoucherno" finished-at="2017-12-13T12:59:57Z">
           <exception class="java.lang.Throwable">
             <message>
-              <![CDATA[Method AdminAddEditDeletecomplaints.Results()[pri:3, instance:dashboard.AdminAddEditDeletecomplaints@7494e528] depends on not successfully finished methods]]>
+              <![CDATA[Method VariableInvoiceGenerationWithTax.ManualChecking()[pri:7, instance:myfinance.VariableInvoiceGenerationWithTax@6fd02e5] depends on not successfully finished methods]]>
             </message>
             <full-stacktrace>
-              <![CDATA[java.lang.Throwable: Method AdminAddEditDeletecomplaints.Results()[pri:3, instance:dashboard.AdminAddEditDeletecomplaints@7494e528] depends on not successfully finished methods
+              <![CDATA[java.lang.Throwable: Method VariableInvoiceGenerationWithTax.ManualChecking()[pri:7, instance:myfinance.VariableInvoiceGenerationWithTax@6fd02e5] depends on not successfully finished methods
 	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1084)
 	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:126)
 	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
@@ -218,12 +183,12 @@ Caused by: java.io.FileNotFoundException: C:\Users\Its my Account\Desktop\Variab
           </exception> <!-- java.lang.Throwable -->
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- Results -->
-        <test-method status="PASS" signature="tearDown()[pri:0, instance:dashboard.AdminAddEditDeletecomplaints@7494e528]" name="tearDown" is-config="true" duration-ms="1603" started-at="2017-12-09T14:17:18Z" finished-at="2017-12-09T14:17:19Z">
+        </test-method> <!-- ManualChecking -->
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:myfinance.VariableInvoiceGenerationWithTax@6fd02e5]" name="tearDown" is-config="true" duration-ms="2478" started-at="2017-12-13T12:59:57Z" finished-at="2017-12-13T12:59:59Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
-      </class> <!-- dashboard.AdminAddEditDeletecomplaints -->
+      </class> <!-- myfinance.VariableInvoiceGenerationWithTax -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

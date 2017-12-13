@@ -1,23 +1,28 @@
 package myfinance;
 
+import java.awt.AWTException;
+import java.awt.HeadlessException;
+import java.io.IOException;
 import java.util.List;
 
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
+
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.firefox.FirefoxDriver;
+
 import org.testng.Reporter;
 import org.testng.annotations.Test;
 
+import FinanceCommon.FinanceGlobalVariables;
 import FinanceCommon.FinanceVariables;
+import FinanceCommon.MethodsCalling;
 import FinanceCommon.TestBase;
 import FinanceCommon.Variables;
 
 
 
 public class DeleteMemberGL extends TestBase {
-	//WebDriver driver = new FirefoxDriver();
+	//WebMethodsCalling.driver MethodsCalling.driver = new FirefoxMethodsCalling.driver();
 	logindetails ldr = new logindetails();
 	
 	@Test(priority = 1)
@@ -31,20 +36,20 @@ public class DeleteMemberGL extends TestBase {
 	}
 	
 	@Test(priority = 2)
-	public void memberGL() throws InterruptedException{
-		driver.findElement(By.xpath(FinanceVariables.Application)).click();
+	public void memberGL() throws InterruptedException, HeadlessException, IOException, AWTException{
+		MethodsCalling.driver.findElement(By.xpath(FinanceVariables.Application)).click();
 		helper1.SAP();
-		driver.findElement(By.xpath(FinanceVariables.GeneralLedgerAccount)).click();
+		MethodsCalling.driver.findElement(By.xpath(FinanceVariables.GeneralLedgerAccount)).click();
 		helper1.SAP();
-		driver.findElement(By.xpath(FinanceVariables.GridSearch)).click();
+		MethodsCalling.driver.findElement(By.xpath(FinanceVariables.GridSearch)).click();
 		helper1.SAP();
-		driver.findElement(By.id(FinanceVariables.FacilityGridSearchTxtbox)).sendKeys(FinanceVariables.MemberGL);
+		MethodsCalling.driver.findElement(By.id(FinanceVariables.FacilityGridSearchTxtbox)).sendKeys(FinanceGlobalVariables.MemberGL);
 		helper1.SAP();
-		driver.findElement(By.id(FinanceVariables.GridSeachFindid)).click();
+		MethodsCalling.driver.findElement(By.id(FinanceVariables.GridSeachFindid)).click();
 		helper1.SAP();
-		driver.findElement(By.xpath(FinanceVariables.GridSearchClose)).click();
+		MethodsCalling.driver.findElement(By.xpath(FinanceVariables.GridSearchClose)).click();
 		helper1.SAP();
-		WebElement load=driver.findElement(By.id(Variables.IdentifyingTable));
+		WebElement load=MethodsCalling.driver.findElement(By.id(Variables.IdentifyingTable));
 		WebElement match=load.findElement(By.tagName(Variables.IdentifyingTableBody));
 		List<WebElement> rows3=match.findElements(By.tagName(Variables.IdentifyingTableRows));   
        
@@ -58,11 +63,14 @@ public class DeleteMemberGL extends TestBase {
 			if(data3.equals(FinanceVariables.MemberGL)){
 				coloumn3.get(2).click();
 	helper1.SAP();
-	driver.findElement(By.xpath(FinanceVariables.DeleteGL)).click();
+	MethodsCalling.driver.findElement(By.xpath(FinanceVariables.DeleteGL)).click();
 	helper1.SAP();
-	Alert simple1=driver.switchTo().alert();
+	method.TakeScreenShotOfWindowPopUp("DeleteMemberGL");
+	Reporter.log("File Name :"+FinanceGlobalVariables.ScreenShotsFileName+"DeleteMemberGL", true);
+	helper1.SAP();
+	Alert simple1=MethodsCalling.driver.switchTo().alert();
 	simple1.accept();
-	Alert simple2=driver.switchTo().alert();
+	Alert simple2=MethodsCalling.driver.switchTo().alert();
 	Reporter.log(simple2.getText(),true);
 	simple2.accept();
 		

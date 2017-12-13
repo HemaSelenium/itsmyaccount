@@ -14,8 +14,7 @@ import javax.imageio.ImageIO;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
+
 import org.testng.Reporter;
 import org.testng.annotations.Test;
 
@@ -26,7 +25,7 @@ import FinanceCommon.TestBase;
 
 
 public class TrialBalance extends TestBase {
-	//WebDriver driver = new FirefoxDriver();
+	//WebMethodsCalling.driver MethodsCalling.driver = new FirefoxMethodsCalling.driver();
 	logindetails ldr = new logindetails();
 	protected static FinanceVariables fin=new FinanceVariables();
 	 protected static MethodsCalling method=new MethodsCalling();
@@ -42,26 +41,26 @@ public class TrialBalance extends TestBase {
 	}
 	@Test(priority = 2)
 	public void trial() throws InterruptedException, IOException, HeadlessException, AWTException {
-		driver.findElement(By.xpath(FinanceVariables.Application)).click();
+		MethodsCalling.driver.findElement(By.xpath(FinanceVariables.Application)).click();
 		helper1.SAP();
-		driver.findElement(By.xpath(FinanceVariables.FinanceReports)).click();
+		MethodsCalling.driver.findElement(By.xpath(FinanceVariables.FinanceReports)).click();
 		helper1.SAP();
-		driver.findElement(By.xpath(FinanceVariables.TrialBalance)).click();
+		MethodsCalling.driver.findElement(By.xpath(FinanceVariables.TrialBalance)).click();
 		helper1.SAP();
-		driver.findElement(By.xpath(FinanceVariables.Filter)).click();
+		MethodsCalling.driver.findElement(By.xpath(FinanceVariables.Filter)).click();
 		helper1.SAP();
-		driver.findElement(By.xpath(FinanceVariables.FilterTodate)).clear();
+		MethodsCalling.driver.findElement(By.xpath(FinanceVariables.FilterTodate)).clear();
 		helper1.SAP();
-		driver.findElement(By.xpath(FinanceVariables.FilterTodate)).sendKeys(method.NextFinancialtoYearplus1month());
+		MethodsCalling.driver.findElement(By.xpath(FinanceVariables.FilterTodate)).sendKeys(method.NextFinancialtoYearplus1month());
 		helper1.SAP();
-		driver.findElement(By.xpath(FinanceVariables.FilterTodate)).sendKeys(Keys.ENTER);
+		MethodsCalling.driver.findElement(By.xpath(FinanceVariables.FilterTodate)).sendKeys(Keys.ENTER);
 		helper1.SAP();
-		driver.findElement(By.xpath(FinanceVariables.FilterGo)).click();
+		MethodsCalling.driver.findElement(By.xpath(FinanceVariables.FilterGo)).click();
 		helper1.SAP();
-		Alert alert=driver.switchTo().alert();
+		Alert alert=MethodsCalling.driver.switchTo().alert();
 		alert.accept();
 		helper1.SAP();
-        method.TakeScreenShotOfWindowPopUp("TrialBalance");
+        method.TakeScreenShot("TrialBalance");
 		Reporter.log("File Name : "+FinanceGlobalVariables.ScreenShotsFileName+"TrialBalance", true);
 		helper1.SAP();
 }

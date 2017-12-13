@@ -32,7 +32,7 @@ public class Step7simulationTocheckForAdvancePayments extends TestBase {
 	@Test(priority = 2)
 	public void AdvancepaymentSimulation() throws InterruptedException, IOException, HeadlessException, AWTException {
 		help2.AdvanceSimulationscenario7();
-	Reporter.log("There is due amount for maintainance unable to pay advance", true);
+	Reporter.log("There is no due amount for maintainance able to pay advance", true);
 		helper1.SAP();
 		
 		

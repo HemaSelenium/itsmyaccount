@@ -8,8 +8,7 @@ import java.io.IOException;
 
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
+
 import org.testng.Reporter;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
@@ -30,7 +29,7 @@ import jxl.write.biff.RowsExceededException;
 
 public class FixedInvoiceGenerationFor2000 extends TestBase {
 String splitmessage1;
-	//WebDriver driver = new FirefoxDriver();
+	//WebMethodsCalling.driver MethodsCalling.driver = new FirefoxMethodsCalling.driver();
 	logindetails ldr = new logindetails();
 	InvoiceGenerationHelper help1 = new InvoiceGenerationHelpDEMO10();
 	FinancialVouchersHelp help2 = new FinancialVouchersDEMO10();
@@ -43,6 +42,7 @@ String splitmessage1;
 			Reporter.log("Test Script:  FinanceTestingIMA_TC_016",true);
 			Reporter.log("--------------------------------------",true);
 			Reporter.log("Script Name:  Fixed Invoice Generationfor 2000",true);
+			Reporter.log("----------------------------",true);
 			helper1.SAP();	
 		}
 	
@@ -57,25 +57,27 @@ String splitmessage1;
 	@Test(priority = 3,dependsOnMethods="Login")
 	public void tax() throws InterruptedException {
 		
-		driver.findElement(By.xpath(FinanceVariables.AdminProfile)).click();
+		MethodsCalling.driver.findElement(By.xpath(FinanceVariables.AdminProfile)).click();
 		helper1.SAP();
-		driver.findElement(By.xpath(FinanceVariables.TaxRadioButtonInAdminProfile)).click();
+		MethodsCalling.driver.findElement(By.xpath(FinanceVariables.TaxRadioButtonInAdminProfile)).click();
 		helper1.SAP();
-		driver.findElement(By.xpath(FinanceVariables.SaveButtonInAdmin)).click();
+		MethodsCalling.driver.findElement(By.xpath(FinanceVariables.SaveButtonInAdmin)).click();
 		helper1.SAP();
-		Alert alert = driver.switchTo().alert();
+		Alert alert = MethodsCalling.driver.switchTo().alert();
 		alert.accept();
 		helper1.SAP();
-		driver.findElement(By.xpath(FinanceVariables.LogOut)).click();
+		MethodsCalling.driver.findElement(By.xpath(FinanceVariables.LogOut)).click();
 		helper1.SAP();	
 		ldr.adminlogin();
 		helper1.SAP();
+		
 		
 	}
 	@Test(priority = 4,dataProvider="FixedInvoice",dependsOnMethods="tax")
 	public void GenerateFixedInvoice(String amount) throws InterruptedException, IOException, HeadlessException, AWTException {
 		splitmessage1=help1.generateFixedInvoice(amount);
 		helper1.SAP();	
+		Reporter.log("----------------------------",true);
 	}
 	@Test(priority = 5,dependsOnMethods="GenerateFixedInvoice")
 	public void writeVoucherno()

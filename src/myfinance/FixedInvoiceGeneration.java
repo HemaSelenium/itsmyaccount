@@ -31,6 +31,7 @@ public class FixedInvoiceGeneration extends TestBase {
 		Reporter.log("Test Script:  FinanceTestingIMA_TC_002",true);
 		Reporter.log("--------------------------------------",true);
 		Reporter.log("Script Name:  Fixed Invoice Generation For Owner BaseAmount",true);
+		Reporter.log("--------------------------------------",true);
 		helper1.SAP();
 	}
 
@@ -45,6 +46,7 @@ public class FixedInvoiceGeneration extends TestBase {
 	@Test(priority=3,dataProvider="FixedInvoice",dependsOnMethods="Login")
 	public void FixedInvoiceGenerationWithDates(String amount,String narration)  throws BiffException, InterruptedException, IOException, HeadlessException, AWTException{
 		splitmessage = help1.GenerateFixedInvoiceno(amount, narration) ;
+		Reporter.log("--------------------------------------",true);
 		Thread.sleep(10000);
 		MethodsCalling.driver.navigate().refresh();
 		helper1.SAP();
@@ -55,7 +57,8 @@ public class FixedInvoiceGeneration extends TestBase {
 	@Test(priority = 4,dataProvider="TenantFixedInvoice",dependsOnMethods="FixedInvoiceGenerationWithDates")
 	public void GenerateFixedInvoicenoForTenant(String amount, String narration) throws BiffException, InterruptedException, IOException, HeadlessException, AWTException{
 		splitmessage1= help1.GenerateFixedInvoicenoForTenant(amount, narration);
-		System.out.println(splitmessage1);
+		Reporter.log("--------------------------------------",true);
+		//System.out.println(splitmessage1);
 		helper1.SAP();
 		
 	}
@@ -72,6 +75,7 @@ public class FixedInvoiceGeneration extends TestBase {
 			throws RowsExceededException, WriteException, IOException, BiffException, InterruptedException, HeadlessException, AWTException {
 		helper1.SAP();
 		help1.GenerateFixedInvoicenoNegativeTesting(amount, narration);
+		Reporter.log("--------------------------------------",true);
 		helper1.SAP();
 	}
 	
@@ -82,6 +86,7 @@ public class FixedInvoiceGeneration extends TestBase {
 	public void ReverseInvoice(String dateid, String splitmessage1 ) throws BiffException, InterruptedException, IOException, HeadlessException, AWTException{
 		
 		help1.ReverseInvoice(splitmessage1);
+		Reporter.log("--------------------------------------",true);
 		helper1.SAP();
 		helper1.SAP();
 		

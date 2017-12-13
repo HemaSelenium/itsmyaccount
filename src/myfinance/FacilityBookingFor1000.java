@@ -1,5 +1,7 @@
 package myfinance;
 
+import java.awt.AWTException;
+import java.awt.HeadlessException;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -58,13 +60,13 @@ public class FacilityBookingFor1000 extends TestBase{
 	@Test(priority = 4, dataProvider = "BookFacility")
 	public void Bookfacility(String Facilityname, String Fromdateid,String FromTime, String Todateid,
 			String ToTime,String Description)
-			throws BiffException, InterruptedException, IOException {
+			throws BiffException, InterruptedException, IOException, HeadlessException, AWTException {
 		help1.BookFacility(Facilityname,Fromdateid,  FromTime,Todateid,ToTime,Description);
 		helper1.SAP();
 	}
 
 	@Test(priority = 5)
-	public void FIGvoucherno() throws InterruptedException, BiffException, IOException {
+	public void FIGvoucherno() throws InterruptedException, BiffException, IOException, HeadlessException, AWTException {
 		
 		helper1.SAP();
 	voucherno = help1.ToGetGeneratedVoucherno();

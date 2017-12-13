@@ -54,9 +54,6 @@ public class VariableInvoiceGenerationWithTax extends TestBase{
 	
 	@Test(priority = 4,dependsOnMethods="Tax")
 	public void log() throws BiffException, InterruptedException, IOException{
-		ldr.logout();
-		
-	helper1.SAP();
 		ldr.adminlogin();
 		helper1.SAP();
 	}

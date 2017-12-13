@@ -21,7 +21,7 @@ import FinanceCommon.TestBase;
 
 
 public class IncomeAndExpenditure extends TestBase {
-	//WebDriver driver = new FirefoxDriver();
+	//WebMethodsCalling.driver MethodsCalling.driver = new FirefoxMethodsCalling.driver();
 	logindetails ldr = new logindetails();
 	protected static FinanceVariables fin=new FinanceVariables();
 	 protected static MethodsCalling method=new MethodsCalling();
@@ -37,28 +37,28 @@ public class IncomeAndExpenditure extends TestBase {
 	}
 	@Test(priority = 2)
 	public void Income() throws InterruptedException, IOException, HeadlessException, AWTException {
-		driver.findElement(By.xpath(FinanceVariables.Application)).click();
+		MethodsCalling.driver.findElement(By.xpath(FinanceVariables.Application)).click();
 		helper1.SAP();
-		driver.findElement(By.xpath(FinanceVariables.FinanceReports)).click();
+		MethodsCalling.driver.findElement(By.xpath(FinanceVariables.FinanceReports)).click();
 		helper1.SAP();
-		driver.findElement(By.xpath(FinanceVariables.IncomeandExpenditure)).click();
+		MethodsCalling.driver.findElement(By.xpath(FinanceVariables.IncomeandExpenditure)).click();
 		helper1.SAP();
-		driver.findElement(By.xpath(FinanceVariables.Filter)).click();
+		MethodsCalling.driver.findElement(By.xpath(FinanceVariables.Filter)).click();
 		helper1.SAP();
-		driver.findElement(By.xpath(FinanceVariables.FilterFromdate)).clear();
+		MethodsCalling.driver.findElement(By.xpath(FinanceVariables.FilterFromdate)).clear();
 		helper1.SAP();
-		driver.findElement(By.xpath(FinanceVariables.FilterFromdate)).sendKeys(method.PreviousFinancialYearfromDate());
+		MethodsCalling.driver.findElement(By.xpath(FinanceVariables.FilterFromdate)).sendKeys(method.PreviousFinancialYearfromDate());
 		helper1.SAP();
-		driver.findElement(By.xpath(FinanceVariables.FilterTodate)).clear();
+		MethodsCalling.driver.findElement(By.xpath(FinanceVariables.FilterTodate)).clear();
 		helper1.SAP();
-		driver.findElement(By.xpath(FinanceVariables.FilterTodate)).sendKeys(method.PreviousFinancialYearToDate());
+		MethodsCalling.driver.findElement(By.xpath(FinanceVariables.FilterTodate)).sendKeys(method.PreviousFinancialYearToDate());
 		helper1.SAP();
-		driver.findElement(By.xpath(FinanceVariables.FilterTodate)).sendKeys(Keys.ENTER);
+		MethodsCalling.driver.findElement(By.xpath(FinanceVariables.FilterTodate)).sendKeys(Keys.ENTER);
 		helper1.SAP();
-		driver.findElement(By.xpath(FinanceVariables.FilterGo)).click();
+		MethodsCalling.driver.findElement(By.xpath(FinanceVariables.FilterGo)).click();
 		helper1.SAP();
 		
-        method.TakeScreenShotOfWindowPopUp("IncomeAndExpenditure");
+        method.TakeScreenShot("IncomeAndExpenditure");
 		Reporter.log("File Name : "+FinanceGlobalVariables.ScreenShotsFileName+"IncomeAndExpenditure", true);
 		helper1.SAP();
 

@@ -215,7 +215,7 @@ helper1.SAP();
 			System.out.println(message + advancevoucherno1);
 		}
 
-	public void Waiver(String waveofvoucher) throws InterruptedException{
+	public void Waiver(String waveofvoucher) throws InterruptedException, HeadlessException, IOException, AWTException{
 		MethodsCalling.driver.findElement(By.xpath(FinanceVariables.Application)).click();
 		helper1.SAP();
 		MethodsCalling.driver.findElement(By.xpath(FinanceVariables.FinanceVouchers)).click();
@@ -242,29 +242,33 @@ helper1.SAP();
 		int rowscount = rows1.size();
 		System.out.println(rowscount);
 		for (rowscount = 0; rowscount < rows1.size(); rowscount++) {
-			
 			List<WebElement> columns1 = rows1.get(rowscount).findElements(By.tagName(FinanceVariables.TablecolumnId));
 			String rowvalue = columns1.get(1).getText();
+			helper1.SAP();
 			System.out.println(rowvalue);
 			if (rowvalue.equals(waveofvoucher)) {
-				
 				columns1.get(0).findElement(By.tagName(FinanceVariables.TagnameInputId)).click();
 				helper1.SAP();
 				List<WebElement> vlues = columns1.get(5).findElements(By.tagName(FinanceVariables.TagnameInputId));
 				helper1.SAP();
 				vlues.get(2).clear();
 				vlues.get(2).sendKeys(editamount);
+				helper1.SAP();
 				MethodsCalling.driver.findElement(By.xpath(FinanceVariables.Narration)).sendKeys(Variables.narration);
 				helper1.SAP();
 				MethodsCalling.driver.findElement(By.xpath(FinanceVariables.WaiveOffButton)).click();
 				helper1.SAP();
 				Alert alert = MethodsCalling.driver.switchTo().alert();
 				helper1.SAP();
+				method.TakeScreenShotOfWindowPopUp(" WaiverForFixedInvoice2000");
+				Reporter.log("File Name : "+FinanceGlobalVariables.ScreenShotsFileName+" WaiverForFixedInvoice2000", true);
+				helper1.SAP();
 				String message = alert.getText();
 				Reporter.log(message,true);
 				alert.dismiss();
 				String advancevoucherno1 = message.split(" ")[1];
-				System.out.println("Generated Waveoff Voucher no:   " + advancevoucherno1);
+				System.out.println("Generated Waveoff Voucher no:" + advancevoucherno1);
+				Reporter.log("--------------------------------------",true);
 			}
 		}
 	}
@@ -355,7 +359,7 @@ helper1.SAP();
 
 	}
 	
-	public void PaymentForTwoVouchers() throws InterruptedException, IOException, BiffException{
+	public void PaymentForTwoVouchers() throws InterruptedException, IOException, BiffException, HeadlessException, AWTException{
 		MethodsCalling.driver.findElement(By.xpath(FinanceVariables.Application)).click();
 		helper1.SAP();
 		MethodsCalling.driver.findElement(By.xpath(FinanceVariables.FinanceVouchers)).click();
@@ -444,6 +448,9 @@ helper1.SAP();
 		MethodsCalling.driver.findElement(By.xpath(FinanceVariables.Narration)).sendKeys(Variables.narration);
 		helper1.SAP();
 		MethodsCalling.driver.findElement(By.xpath(FinanceVariables.paybutton)).click();
+		helper1.SAP();
+		method.TakeScreenShotOfWindowPopUp("Balance");
+		Reporter.log("File Name : "+FinanceGlobalVariables.ScreenShotsFileName+"Balance", true);
 		helper1.SAP();
 		Alert alert = MethodsCalling.driver.switchTo().alert();
 		helper1.SAP();
@@ -718,14 +725,15 @@ helper1.SAP();
 		helper1.SAP();
 		MethodsCalling.driver.findElement(By.id(FinanceVariables.FinGo)).click();
 		helper1.SAP();
-		method.TakeScreenShotOfWindowPopUp("AdvanceSimulationInstep7");
-		Reporter.log("File Name : "+FinanceGlobalVariables.ScreenShotsFileName+"AdvanceSimulationInstep7", true);
-		helper1.SAP();
+		
 		MethodsCalling.driver.findElement(By.xpath(FinanceVariables.Vouchertype)).clear();
 		helper1.SAP();
 		MethodsCalling.driver.findElement(By.xpath(FinanceVariables.Vouchertype)).sendKeys(FinanceVariables.MaintainaceType);
 		helper1.SAP();
 		MethodsCalling.driver.findElement(By.id(FinanceVariables.FinGo)).click();
+		helper1.SAP();
+		method.TakeScreenShotOfWindowPopUp("AdvanceSimulationInstep7");
+		Reporter.log("File Name : "+FinanceGlobalVariables.ScreenShotsFileName+"AdvanceSimulationInstep7", true);
 		helper1.SAP();
 		
 		
@@ -912,7 +920,7 @@ helper1.SAP();
    			helper1.SAP();
 			Alert alert = MethodsCalling.driver.switchTo().alert();
    			helper1.SAP();
-   			alert.accept();
+   			alert.dismiss();
 			
     	   
        }
@@ -1012,6 +1020,7 @@ helper1.SAP();
 		
 					}
 				}
+				helper1.SAP();
 			MethodsCalling.driver.findElement(By.xpath(".//*[@id='frm-Payment']/div/div/div[2]/div[4]/table/tbody/tr[2]/td[6]/input[3]")).clear();
 			helper1.SAP();
 			MethodsCalling.driver.findElement(By.xpath(".//*[@id='frm-Payment']/div/div/div[2]/div[4]/table/tbody/tr[2]/td[6]/input[3]")).sendKeys("400");
@@ -1027,7 +1036,7 @@ helper1.SAP();
 }
   
   public void PaymentInstep23D()
-			throws InterruptedException, BiffException, IOException {
+			throws InterruptedException, BiffException, IOException, HeadlessException, AWTException {
 		MethodsCalling.driver.findElement(By.xpath(FinanceVariables.Application)).click();
 		helper1.SAP();
 			MethodsCalling.driver.findElement(By.xpath(FinanceVariables.FinanceVouchers)).click();
@@ -1091,13 +1100,18 @@ helper1.SAP();
 		
 					}
 				}
-			MethodsCalling.driver.findElement(By.xpath(FinanceVariables.AdvanceTab)).clear();
+				
+				helper1.SAP();
+			MethodsCalling.driver.findElement(By.xpath(".//*[@id='frm-Payment']/div/div/div[2]/div[4]/table/tbody/tr[2]/td[6]/input[3]")).clear();
 			helper1.SAP();
-			MethodsCalling.driver.findElement(By.xpath(FinanceVariables.AdvanceTab)).sendKeys("600");
+			MethodsCalling.driver.findElement(By.xpath(".//*[@id='frm-Payment']/div/div/div[2]/div[4]/table/tbody/tr[2]/td[6]/input[3]")).sendKeys("600");
 			helper1.SAP();
-			MethodsCalling.driver.findElement(By.id(FinanceVariables.narration)).sendKeys(Variables.narration);
+			MethodsCalling.driver.findElement(By.xpath(FinanceVariables.Narration)).sendKeys(Variables.narration);
 			helper1.SAP();
 			MethodsCalling.driver.findElement(By.xpath(FinanceVariables.paybutton)).click();
+			helper1.SAP();
+			method.TakeScreenShotOfWindowPopUp("PartialAndFullPaymentFor2Invoices");
+			Reporter.log("File Name :"+FinanceGlobalVariables.ScreenShotsFileName+"PartialAndFullPaymentFor2Invoices", true);
 			helper1.SAP();
 			Alert alert = MethodsCalling.driver.switchTo().alert();
  			helper1.SAP();

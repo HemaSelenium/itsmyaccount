@@ -14,13 +14,14 @@ import org.testng.Reporter;
 import org.testng.annotations.Test;
 
 import FinanceCommon.FinanceVariables;
+import FinanceCommon.MethodsCalling;
 import FinanceCommon.TestBase;
 import FinanceCommon.Variables;
 
 
 
 public class CreateEditDeleteGLAccount extends TestBase {
-	//WebDriver driver = new FirefoxDriver();
+	//WebMethodsCalling.driver MethodsCalling.driver = new FirefoxMethodsCalling.driver();
 	logindetails ldr = new logindetails();
 	protected static FinanceVariables fin=new FinanceVariables();
 	 boolean result=true;
@@ -38,35 +39,35 @@ public class CreateEditDeleteGLAccount extends TestBase {
 	
 	@Test(priority = 2)
 	public void CreateGL() throws InterruptedException {
-		driver.findElement(By.xpath(FinanceVariables.Application)).click();
+		MethodsCalling.driver.findElement(By.xpath(FinanceVariables.Application)).click();
 		helper1.SAP();
-		driver.findElement(By.xpath(FinanceVariables.GeneralLedgerAccount)).click();
+		MethodsCalling.driver.findElement(By.xpath(FinanceVariables.GeneralLedgerAccount)).click();
 		helper1.SAP();
-		driver.findElement(By.xpath(FinanceVariables.AddGL)).click();
+		MethodsCalling.driver.findElement(By.xpath(FinanceVariables.AddGL)).click();
 		helper1.SAP();
-		driver.findElement(By.xpath(FinanceVariables.GLAccountName)).sendKeys(FinanceVariables.GLName);
+		MethodsCalling.driver.findElement(By.xpath(FinanceVariables.GLAccountName)).sendKeys(FinanceVariables.GLName);
 		helper1.SAP();
-		driver.findElement(By.xpath(FinanceVariables.GLDescriptionPath)).sendKeys(FinanceVariables.GLDescriptionTxt);
+		MethodsCalling.driver.findElement(By.xpath(FinanceVariables.GLDescriptionPath)).sendKeys(FinanceVariables.GLDescriptionTxt);
 		helper1.SAP();
-		driver.findElement(By.xpath(FinanceVariables.LedgerGroupId)).sendKeys(FinanceVariables.GLGroup1);
+		MethodsCalling.driver.findElement(By.xpath(FinanceVariables.LedgerGroupId)).sendKeys(FinanceVariables.GLGroup1);
 		helper1.SAP();
-		driver.findElement(By.xpath(FinanceVariables.GLDescriptionPath)).click();
-		helper1.SAP();
-		
-		driver.findElement(By.xpath(FinanceVariables.SaveGL)).click();
-		helper1.SAP();
-		driver.navigate().refresh();
-		helper1.SAP();
-		driver.findElement(By.xpath(FinanceVariables.GridSearch)).click();
-		helper1.SAP();
-		driver.findElement(By.id(FinanceVariables.FacilityGridSearchTxtbox)).sendKeys(FinanceVariables.GLName);
+		MethodsCalling.driver.findElement(By.xpath(FinanceVariables.GLDescriptionPath)).click();
 		helper1.SAP();
 		
-		driver.findElement(By.id(FinanceVariables.GridSeachFindid)).click();
+		MethodsCalling.driver.findElement(By.xpath(FinanceVariables.SaveGL)).click();
 		helper1.SAP();
-		driver.findElement(By.xpath(FinanceVariables.GridSearchClose)).click();
+		MethodsCalling.driver.navigate().refresh();
 		helper1.SAP();
-		WebElement load=driver.findElement(By.id(Variables.IdentifyingTable));
+		MethodsCalling.driver.findElement(By.xpath(FinanceVariables.GridSearch)).click();
+		helper1.SAP();
+		MethodsCalling.driver.findElement(By.id(FinanceVariables.FacilityGridSearchTxtbox)).sendKeys(FinanceVariables.GLName);
+		helper1.SAP();
+		
+		MethodsCalling.driver.findElement(By.id(FinanceVariables.GridSeachFindid)).click();
+		helper1.SAP();
+		MethodsCalling.driver.findElement(By.xpath(FinanceVariables.GridSearchClose)).click();
+		helper1.SAP();
+		WebElement load=MethodsCalling.driver.findElement(By.id(Variables.IdentifyingTable));
 		WebElement match=load.findElement(By.tagName(Variables.IdentifyingTableBody));
 		List<WebElement> rows3=match.findElements(By.tagName(Variables.IdentifyingTableRows));   
        
@@ -80,15 +81,15 @@ public class CreateEditDeleteGLAccount extends TestBase {
 			if(data3.equals(FinanceVariables.GLName)){
 				coloumn3.get(2).click();
 				helper1.SAP();
-				driver.findElement(By.xpath(FinanceVariables.EditGroupName)).click();
+				MethodsCalling.driver.findElement(By.xpath(FinanceVariables.EditGroupName)).click();
 				helper1.SAP();
-				driver.findElement(By.xpath(FinanceVariables.GLAccountName)).clear();
+				MethodsCalling.driver.findElement(By.xpath(FinanceVariables.GLAccountName)).clear();
 				helper1.SAP();
-				driver.findElement(By.xpath(FinanceVariables.GLAccountName)).sendKeys(FinanceVariables.GLName1);
+				MethodsCalling.driver.findElement(By.xpath(FinanceVariables.GLAccountName)).sendKeys(FinanceVariables.GLName1);
 				helper1.SAP();
-				driver.findElement(By.xpath(FinanceVariables.SaveGL)).click();
+				MethodsCalling.driver.findElement(By.xpath(FinanceVariables.SaveGL)).click();
 				helper1.SAP();
-				driver.navigate().refresh();
+				MethodsCalling.driver.navigate().refresh();
 				helper1.SAP();
 				break;
 		
@@ -99,17 +100,17 @@ public class CreateEditDeleteGLAccount extends TestBase {
 	
 	@Test(priority = 3)
 	public void DeleteGL() throws InterruptedException{
-		driver.findElement(By.xpath(FinanceVariables.GridSearch)).click();
+		MethodsCalling.driver.findElement(By.xpath(FinanceVariables.GridSearch)).click();
 		helper1.SAP();
-		driver.findElement(By.id(FinanceVariables.FacilityGridSearchTxtbox)).sendKeys(FinanceVariables.GLName);
+		MethodsCalling.driver.findElement(By.id(FinanceVariables.FacilityGridSearchTxtbox)).sendKeys(FinanceVariables.GLName);
 		helper1.SAP();
 		
-		driver.findElement(By.id(FinanceVariables.GridSeachFindid)).click();
+		MethodsCalling.driver.findElement(By.id(FinanceVariables.GridSeachFindid)).click();
 		helper1.SAP();
-		driver.findElement(By.xpath(FinanceVariables.GridSearchClose)).click();
+		MethodsCalling.driver.findElement(By.xpath(FinanceVariables.GridSearchClose)).click();
 		helper1.SAP();
 	
-		WebElement load=driver.findElement(By.id(Variables.IdentifyingTable));
+		WebElement load=MethodsCalling.driver.findElement(By.id(Variables.IdentifyingTable));
 		WebElement match=load.findElement(By.tagName(Variables.IdentifyingTableBody));
 		List<WebElement> rows3=match.findElements(By.tagName(Variables.IdentifyingTableRows));   
        
@@ -123,9 +124,9 @@ public class CreateEditDeleteGLAccount extends TestBase {
 			if(data3.equals(FinanceVariables.GLName)){
 				coloumn3.get(2).click();
 	helper1.SAP();
-	driver.findElement(By.xpath(FinanceVariables.DeleteGL)).click();
+	MethodsCalling.driver.findElement(By.xpath(FinanceVariables.DeleteGL)).click();
 	helper1.SAP();
-	Alert simple1=driver.switchTo().alert();
+	Alert simple1=MethodsCalling.driver.switchTo().alert();
 	simple1.accept();
 	break;
 	

@@ -17,7 +17,7 @@ import FinanceCommon.TestBase;
 
 
 public class Ledger extends TestBase  {
-	//WebDriver driver = new FirefoxDriver();
+	//WebMethodsCalling.driver MethodsCalling.driver = new FirefoxMethodsCalling.driver();
 	logindetails ldr = new logindetails();
 	protected static FinanceVariables fin=new FinanceVariables();
 	 protected static MethodsCalling method=new MethodsCalling();
@@ -33,26 +33,26 @@ public class Ledger extends TestBase  {
 	}
 	@Test(priority = 2)
 	public void ledger() throws InterruptedException, IOException, HeadlessException, AWTException {
-		driver.findElement(By.xpath(FinanceVariables.Application)).click();
+		MethodsCalling.driver.findElement(By.xpath(FinanceVariables.Application)).click();
 		helper1.SAP();
-		driver.findElement(By.xpath(FinanceVariables.FinanceReports)).click();
+		MethodsCalling.driver.findElement(By.xpath(FinanceVariables.FinanceReports)).click();
 		helper1.SAP();
-		driver.findElement(By.xpath(FinanceVariables.Ledger)).click();
+		MethodsCalling.driver.findElement(By.xpath(FinanceVariables.Ledger)).click();
 		helper1.SAP();
-		driver.findElement(By.xpath(FinanceVariables.LedgerGroupDropdown)).clear();
+		MethodsCalling.driver.findElement(By.xpath(FinanceVariables.LedgerGroupDropdown)).clear();
 		helper1.SAP();
-		driver.findElement(By.xpath(FinanceVariables.LedgerGroupDropdown)).sendKeys(FinanceVariables.LedgerGroupname);
+		MethodsCalling.driver.findElement(By.xpath(FinanceVariables.LedgerGroupDropdown)).sendKeys(FinanceVariables.LedgerGroupname);
 		helper1.SAP();
-		driver.findElement(By.xpath(FinanceVariables.LedgerAccountDropdown)).sendKeys(FinanceVariables.LedgerAccountName);
+		MethodsCalling.driver.findElement(By.xpath(FinanceVariables.LedgerAccountDropdown)).sendKeys(FinanceVariables.LedgerAccountName);
 		helper1.SAP();
-		driver.findElement(By.xpath(FinanceVariables.LedgerGo)).click();
+		MethodsCalling.driver.findElement(By.xpath(FinanceVariables.LedgerGo)).click();
 		helper1.SAP();
-		JavascriptExecutor jse = (JavascriptExecutor)driver;
+		JavascriptExecutor jse = (JavascriptExecutor)MethodsCalling.driver;
 		 jse.executeScript("window.scrollBy(0,5500)", ""); //y value '800' can be altered
 		    helper1.SAP();
 		    jse.executeScript("window.scrollBy(0,-5500)", ""); //y value '800' can be altered
 		    helper1.SAP();
-		    method.TakeScreenShotOfWindowPopUp("ledger");
+		    method.TakeScreenShot("ledger");
 			Reporter.log("File Name : "+FinanceGlobalVariables.ScreenShotsFileName+"ledger", true);
 			helper1.SAP();
 		

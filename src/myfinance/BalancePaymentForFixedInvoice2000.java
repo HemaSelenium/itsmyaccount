@@ -1,5 +1,7 @@
 package myfinance;
 
+import java.awt.AWTException;
+import java.awt.HeadlessException;
 import java.io.IOException;
 
 import org.openqa.selenium.WebDriver;
@@ -33,7 +35,7 @@ public class BalancePaymentForFixedInvoice2000 extends TestBase {
 		
 	}
 	@Test(priority = 3,dependsOnMethods="Login")
-	public void balancepayment() throws InterruptedException, BiffException, IOException {
+	public void balancepayment() throws InterruptedException, BiffException, IOException, HeadlessException, AWTException {
 		help2.PaymentForTwoVouchers();
 		helper1.SAP();
 		}

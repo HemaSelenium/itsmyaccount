@@ -8,9 +8,9 @@ import java.util.List;
 
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
+
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.firefox.FirefoxDriver;
+
 import org.openqa.selenium.interactions.Actions;
 import org.testng.Reporter;
 import org.testng.annotations.DataProvider;
@@ -27,7 +27,7 @@ import jxl.Workbook;
 import jxl.read.biff.BiffException;
 
 public class VariableInvoiceGenerationWithReversal extends TestBase {
-	//WebDriver driver = new FirefoxDriver();
+	//WebMethodsCalling.driver MethodsCalling.driver = new FirefoxMethodsCalling.driver();
 	logindetails ldr = new logindetails();
 	
 	String voucherno2;
@@ -60,24 +60,25 @@ public class VariableInvoiceGenerationWithReversal extends TestBase {
 			throws InterruptedException, IOException, BiffException, HeadlessException, AWTException {
 		voucherno2=help1.GenerateVariableInvoice(amount);
 		helper1.SAP();
-		//System.out.println(voucherno2);
-		driver.navigate().refresh();
+		helper1.SAP();
+		MethodsCalling.driver.navigate().refresh();
+		helper1.SAP();
 		helper1.SAP();
 	}
 	@Test(priority = 4,dependsOnMethods="Variable")
 	public void reverse()
-			throws InterruptedException, IOException, BiffException {
-		driver.findElement(By.xpath(FinanceVariables.Application)).click();
+			throws InterruptedException, IOException, BiffException, HeadlessException, AWTException {
+		MethodsCalling.driver.findElement(By.xpath(FinanceVariables.Application)).click();
 		helper1.SAP();
-		driver.findElement(By.xpath(FinanceVariables.SocietyInvoicing)).click();
+		MethodsCalling.driver.findElement(By.xpath(FinanceVariables.SocietyInvoicing)).click();
 		helper1.SAP();
-		driver.findElement(By.xpath(FinanceVariables.VariableInvoiceReversal)).click();
+		MethodsCalling.driver.findElement(By.xpath(FinanceVariables.VariableInvoiceReversal)).click();
 		helper1.SAP();
-		driver.findElement(By.xpath(FinanceVariables.ReversalInvoiceNumbertab)).sendKeys(voucherno2);
+		MethodsCalling.driver.findElement(By.xpath(FinanceVariables.ReversalInvoiceNumbertab)).sendKeys(voucherno2);
 		helper1.SAP();
-		driver.findElement(By.xpath(FinanceVariables.LedgerGo)).click();
+		MethodsCalling.driver.findElement(By.xpath(FinanceVariables.LedgerGo)).click();
 		helper1.SAP();
-		WebElement load=driver.findElement(By.id(Variables.IdentifyingTable));
+		WebElement load=MethodsCalling.driver.findElement(By.id(Variables.IdentifyingTable));
 		WebElement match=load.findElement(By.tagName(Variables.IdentifyingTableBody));
 		List<WebElement> rows3=match.findElements(By.tagName(Variables.IdentifyingTableRows));   
        
@@ -91,17 +92,20 @@ public class VariableInvoiceGenerationWithReversal extends TestBase {
 			if(data3.equals(voucherno2)){
 				coloumn3.get(2).click();
 				helper1.SAP();
-				driver.findElement(By.xpath(FinanceVariables.FixedInvoiceReversal)).click();
+				MethodsCalling.driver.findElement(By.xpath(FinanceVariables.FixedInvoiceReversalReverse)).click();
 				helper1.SAP();
-				driver.findElement(By.xpath(FinanceVariables.FixedInvoiceReversalDate)).clear();
+				MethodsCalling.driver.findElement(By.xpath(FinanceVariables.FixedInvoiceReversalDate)).clear();
 				helper1.SAP();
-				driver.findElement(By.xpath(FinanceVariables.FixedInvoiceReversalDate)).sendKeys(method.PresentdateMinus1());
+				MethodsCalling.driver.findElement(By.xpath(FinanceVariables.FixedInvoiceReversalDate)).sendKeys(method.PresentdateMinus1());
 				helper1.SAP();
-				driver.findElement(By.id(FinanceVariables.FixedInvoiceReversalReason)).sendKeys("Reverse");
+				MethodsCalling.driver.findElement(By.id(FinanceVariables.FixedInvoiceReversalReason)).sendKeys("Reverse");
 				helper1.SAP();
-				driver.findElement(By.id(FinanceVariables.FixedInvoiceReverseAfterReason)).click();
+				MethodsCalling.driver.findElement(By.id(FinanceVariables.FixedInvoiceReverseAfterReason)).click();
 				helper1.SAP();
-				Alert alert = driver.switchTo().alert();
+				method.TakeScreenShotOfWindowPopUp("VariableInvoiceGenerationWithReversal");
+				Reporter.log("File Name:"+FinanceGlobalVariables.ScreenShotsFileName+"VariableInvoiceGenerationWithReversal", true);
+				helper1.SAP();
+				Alert alert = MethodsCalling.driver.switchTo().alert();
 	   			helper1.SAP();
 	   			String vouchermessage = alert.getText();
 	   			String voucherno = vouchermessage.split(" ")[3];
@@ -109,27 +113,25 @@ public class VariableInvoiceGenerationWithReversal extends TestBase {
 	   			System.out.println(voucherno);
 	   			alert.accept();
 	   			helper1.SAP();
-	   			driver.findElement(By.xpath(FinanceVariables.Application)).click();
+	   			MethodsCalling.driver.findElement(By.xpath(FinanceVariables.Application)).click();
 	   			helper1.SAP();
-	   				driver.findElement(By.xpath(FinanceVariables.FinanceVouchers)).click();
+	   				MethodsCalling.driver.findElement(By.xpath(FinanceVariables.FinanceVouchers)).click();
 	   				helper1.SAP();
-	   			driver.findElement(By.xpath(FinanceVariables.GridSearch)).click();
+	   			MethodsCalling.driver.findElement(By.xpath(FinanceVariables.GridSearch)).click();
 	   			helper1.SAP();
-	   			driver.findElement(By.xpath(FinanceVariables.GridSearchType)).click();
+	   			MethodsCalling.driver.findElement(By.xpath(FinanceVariables.GridSearchType)).click();
 	   			helper1.SAP();
-	   			driver.findElement(By.id(FinanceVariables.GridSearchTxtboxId)).sendKeys(voucherno);
+	   			MethodsCalling.driver.findElement(By.id(FinanceVariables.GridSearchTxtboxId)).sendKeys(voucherno);
 	   			helper1.SAP();
-	   			driver.findElement(By.id(FinanceVariables.GridSeachFindid)).click();// find button
+	   			MethodsCalling.driver.findElement(By.id(FinanceVariables.GridSeachFindid)).click();// find button
 	   			helper1.SAP();
-	   			driver.findElement(By.xpath(FinanceVariables.GridSearchClose)).click(); // close
-	   																							// button
+	   			MethodsCalling.driver.findElement(By.xpath(FinanceVariables.GridSearchClose)).click(); // close
 	   			helper1.SAP();
-	   			
-	   			WebElement element = driver.findElement(By.xpath(FinanceVariables.VoucherNumberTabInFinanceVouchers));
-	   			Actions action = new Actions(driver).doubleClick(element);
+	   			WebElement element = MethodsCalling.driver.findElement(By.xpath(FinanceVariables.VoucherNumberTabInFinanceVouchers));
+	   			Actions action = new Actions(MethodsCalling.driver).doubleClick(element);
 	   			action.build().perform();
 	   			helper1.SAP();
-	   			driver.findElement(By.xpath(FinanceVariables.CloseVocherInFinanceVouchers));
+	   			MethodsCalling.driver.findElement(By.xpath(FinanceVariables.CloseVocherInFinanceVouchers));
 	   			helper1.SAP();
 						
 			}	
@@ -151,7 +153,7 @@ public class VariableInvoiceGenerationWithReversal extends TestBase {
 	 @Test(priority = 6,dependsOnMethods="ManualChecking")
 		public void UserLogin()
 				throws InterruptedException, IOException {
-			method.userLoginWithScreenShotsAfterProcess1(driver);
+			method.userLoginWithScreenShotsAfterProcess1(MethodsCalling.driver);
 			helper1.SAP();
 		}
 

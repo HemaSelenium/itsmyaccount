@@ -1,5 +1,7 @@
 package myfinance;
 
+import java.awt.AWTException;
+import java.awt.HeadlessException;
 import java.io.File;
 import java.io.IOException;
 
@@ -21,7 +23,7 @@ import jxl.Workbook;
 import jxl.read.biff.BiffException;
 
 public class ManualPostingInFinanceVouchersThroughExcel extends TestBase {
-	//WebDriver driver = new FirefoxDriver();
+	//WebMethodsCalling.driver MethodsCalling.driver = new FirefoxMethodsCalling.driver();
 	logindetails ldr = new logindetails();
 	 boolean result=true;
 	 protected static MethodsCalling method=new MethodsCalling();
@@ -45,42 +47,45 @@ public class ManualPostingInFinanceVouchersThroughExcel extends TestBase {
 		
 	
 	@Test(priority = 3,dataProvider="Manual")
-	public void Manualposting(String amount) throws InterruptedException {
-		driver.findElement(By.xpath(FinanceVariables.Application)).click();
+	public void Manualposting(String amount) throws InterruptedException, HeadlessException, IOException, AWTException {
+		MethodsCalling.driver.findElement(By.xpath(FinanceVariables.Application)).click();
 		helper1.SAP();
-		driver.findElement(By.xpath(FinanceVariables.FinanceVouchers)).click();
+		MethodsCalling.driver.findElement(By.xpath(FinanceVariables.FinanceVouchers)).click();
 		helper1.SAP();
-		driver.findElement(By.xpath(FinanceVariables.AddmanualVoucher)).click();
+		MethodsCalling.driver.findElement(By.xpath(FinanceVariables.AddmanualVoucher)).click();
 		helper1.SAP();
-		driver.findElement(By.xpath(FinanceVariables.VoucherDate)).clear();
+		MethodsCalling.driver.findElement(By.xpath(FinanceVariables.VoucherDate)).clear();
 		helper1.SAP();
-		driver.findElement(By.xpath(FinanceVariables.VoucherDate)).sendKeys(method.PresentdateMinus6());
+		MethodsCalling.driver.findElement(By.xpath(FinanceVariables.VoucherDate)).sendKeys(method.PresentdateMinus6());
 		helper1.SAP();
-		driver.findElement(By.xpath(FinanceVariables.VoucherDate)).sendKeys(Keys.ENTER);
+		MethodsCalling.driver.findElement(By.xpath(FinanceVariables.VoucherDate)).sendKeys(Keys.ENTER);
 		helper1.SAP();
-		driver.findElement(By.xpath(FinanceVariables.ManualVoucherGLtxt)).clear();
+		MethodsCalling.driver.findElement(By.xpath(FinanceVariables.ManualVoucherGLtxt)).clear();
 		helper1.SAP();
-		driver.findElement(By.xpath(FinanceVariables.ManualVoucherGLtxt)).sendKeys("Travelling Expenses");
+		MethodsCalling.driver.findElement(By.xpath(FinanceVariables.ManualVoucherGLtxt)).sendKeys("Travelling Expenses");
 	    helper1.SAP();
-	    driver.findElement(By.xpath(FinanceVariables.ManualVoucherGLtxt)).sendKeys(Keys.ENTER);
+	    MethodsCalling.driver.findElement(By.xpath(FinanceVariables.ManualVoucherGLtxt)).sendKeys(Keys.ENTER);
 		helper1.SAP();
-	    driver.findElement(By.xpath(FinanceVariables.DebitPath)).sendKeys(Keys.BACK_SPACE);
+	    MethodsCalling.driver.findElement(By.xpath(FinanceVariables.DebitPath)).sendKeys(Keys.BACK_SPACE);
 	helper1.SAP();
-		driver.findElement(By.xpath(FinanceVariables.DebitPath)).sendKeys(Keys.BACK_SPACE);
+		MethodsCalling.driver.findElement(By.xpath(FinanceVariables.DebitPath)).sendKeys(Keys.BACK_SPACE);
 	helper1.SAP();
-		driver.findElement(By.xpath(FinanceVariables.DebitPath)).sendKeys(Keys.BACK_SPACE);
+		MethodsCalling.driver.findElement(By.xpath(FinanceVariables.DebitPath)).sendKeys(Keys.BACK_SPACE);
 	helper1.SAP();
-		driver.findElement(By.xpath(FinanceVariables.DebitPath)).sendKeys(Keys.BACK_SPACE);
+		MethodsCalling.driver.findElement(By.xpath(FinanceVariables.DebitPath)).sendKeys(Keys.BACK_SPACE);
 		helper1.SAP();
-		driver.findElement(By.xpath(FinanceVariables.DebitPath)).sendKeys(amount);
+		MethodsCalling.driver.findElement(By.xpath(FinanceVariables.DebitPath)).sendKeys(amount);
 		helper1.SAP();
-		driver.findElement(By.xpath(FinanceVariables.ExtendButton)).click();
+		MethodsCalling.driver.findElement(By.xpath(FinanceVariables.ExtendButton)).click();
 		helper1.SAP();
-		driver.findElement(By.xpath(FinanceVariables.GLDescriptionPath)).sendKeys(FinanceVariables.narration);
+		MethodsCalling.driver.findElement(By.xpath(FinanceVariables.GLDescriptionPath)).sendKeys(FinanceVariables.narration);
 		helper1.SAP();
-		driver.findElement(By.xpath(FinanceVariables.SaveVoucher)).click();
+		MethodsCalling.driver.findElement(By.xpath(FinanceVariables.SaveVoucher)).click();
 		helper1.SAP();
-		Alert alert2 = driver.switchTo().alert();
+		method.TakeScreenShotOfWindowPopUp("ManualVoucherThroughexcel");
+		Reporter.log("File Name :"+FinanceGlobalVariables.ScreenShotsFileName+"ManualVoucherThroughexcel", true);
+		helper1.SAP();
+		Alert alert2 = MethodsCalling.driver.switchTo().alert();
 		helper1.SAP();
 		String message2 = alert2.getText();
 		Reporter.log(message2,true);
@@ -94,21 +99,24 @@ public class ManualPostingInFinanceVouchersThroughExcel extends TestBase {
 		alert2.accept();
 		helper1.SAP();
 		
-		driver.findElement(By.xpath(FinanceVariables.GridSearch)).click();
+		MethodsCalling.driver.findElement(By.xpath(FinanceVariables.GridSearch)).click();
 		helper1.SAP();
 		
-		driver.findElement(By.id(FinanceVariables.FacilityGridSearchTxtbox)).sendKeys(message4);
+		MethodsCalling.driver.findElement(By.id(FinanceVariables.FacilityGridSearchTxtbox)).sendKeys(message4);
 		helper1.SAP();
-		driver.findElement(By.id(FinanceVariables.GridSeachFindid)).click();// find button
+		MethodsCalling.driver.findElement(By.id(FinanceVariables.GridSeachFindid)).click();// find button
 		helper1.SAP();
-		driver.findElement(By.xpath(FinanceVariables.GridSearchClose)).click();
+		MethodsCalling.driver.findElement(By.xpath(FinanceVariables.GridSearchClose)).click();
 		helper1.SAP();
-		driver.navigate().refresh();
+		MethodsCalling.driver.navigate().refresh();
 		helper1.SAP();
-		driver.findElement(By.xpath(FinanceVariables.Export)).click();
+		MethodsCalling.driver.findElement(By.xpath(FinanceVariables.Export)).click();
 		helper1.SAP();
- 	   driver.findElement(By.xpath(FinanceVariables.Exportpdf)).click();
+ 	   MethodsCalling.driver.findElement(By.xpath(FinanceVariables.Exportpdf)).click();
  	  helper1.SAP();
+ 	 method.TakeScreenShot("manualPostingForpdf");
+		Reporter.log("File Name:"+FinanceGlobalVariables.ScreenShotsFileName+"manualPostingForpdf", true);
+				helper1.SAP();
  	 
 	}
 	

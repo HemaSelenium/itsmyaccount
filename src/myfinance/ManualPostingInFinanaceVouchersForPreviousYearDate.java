@@ -1,13 +1,14 @@
 package myfinance;
 
+import java.awt.AWTException;
+import java.awt.HeadlessException;
 import java.io.File;
 import java.io.IOException;
 
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
+
 import org.testng.Reporter;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
@@ -23,7 +24,7 @@ import jxl.Workbook;
 import jxl.read.biff.BiffException;
 
 public class ManualPostingInFinanaceVouchersForPreviousYearDate extends TestBase {
-	//WebDriver driver = new FirefoxDriver();
+	//WebMethodsCalling.driver MethodsCalling.driver = new FirefoxMethodsCalling.driver();
 	logindetails ldr = new logindetails();
 	String Block="Ratna";
     String FlatNo="Rx3";
@@ -48,55 +49,67 @@ public class ManualPostingInFinanaceVouchersForPreviousYearDate extends TestBase
 	
 	
 	@Test(priority = 3,dataProvider="Manual",dependsOnMethods="Login")
-	public void ManualVoucherForNexfinancialyear(String amount) throws InterruptedException {
-		driver.findElement(By.xpath(FinanceVariables.Application)).click();
+	public void ManualVoucherForNexfinancialyear(String amount) throws InterruptedException, HeadlessException, IOException, AWTException {
+		MethodsCalling.driver.findElement(By.xpath(FinanceVariables.Application)).click();
 		helper1.SAP();
-		driver.findElement(By.xpath(FinanceVariables.FinanceVouchers)).click();
+		MethodsCalling.driver.findElement(By.xpath(FinanceVariables.FinanceVouchers)).click();
 		helper1.SAP();
-		driver.findElement(By.xpath(FinanceVariables.Filter)).click();
+		MethodsCalling.driver.findElement(By.xpath(FinanceVariables.Filter)).click();
 		helper1.SAP();
-		driver.findElement(By.xpath(FinanceVariables.FilterFromdate)).clear();
+		MethodsCalling.driver.findElement(By.xpath(FinanceVariables.FilterFromdate)).clear();
 		helper1.SAP();
-		driver.findElement(By.xpath(FinanceVariables.FilterFromdate)).sendKeys(method.NextFinancialFromYear());
+		MethodsCalling.driver.findElement(By.xpath(FinanceVariables.FilterFromdate)).sendKeys(method.PreviousFinancialYearfromDate());
 		helper1.SAP();
-		driver.findElement(By.xpath(FinanceVariables.FilterTodate)).clear();
+		MethodsCalling.driver.findElement(By.xpath(FinanceVariables.FilterTodate)).clear();
 		helper1.SAP();
-		driver.findElement(By.xpath(FinanceVariables.FilterTodate)).sendKeys(method.NextFinancialtoYear());
+		MethodsCalling.driver.findElement(By.xpath(FinanceVariables.FilterTodate)).sendKeys(method.PreviousFinancialYearToDate());
 		helper1.SAP();
-		driver.findElement(By.xpath(FinanceVariables.FilterTodate)).sendKeys(Keys.ENTER);
+		MethodsCalling.driver.findElement(By.xpath(FinanceVariables.FilterTodate)).sendKeys(Keys.ENTER);
 		helper1.SAP();
-		driver.findElement(By.xpath(FinanceVariables.FilterGo)).click();
+		MethodsCalling.driver.findElement(By.xpath(FinanceVariables.FilterGo)).click();
 		helper1.SAP();
-		driver.findElement(By.xpath(FinanceVariables.AddmanualVoucher)).click();
+		MethodsCalling.driver.findElement(By.xpath(FinanceVariables.AddmanualVoucher)).click();
 		helper1.SAP();
-		driver.findElement(By.xpath(FinanceVariables.VoucherDate)).clear();
+		MethodsCalling.driver.findElement(By.xpath(FinanceVariables.VoucherDate)).clear();
 		helper1.SAP();
-		driver.findElement(By.xpath(FinanceVariables.VoucherDate)).sendKeys(method.PreviousYear());
+		MethodsCalling.driver.findElement(By.xpath(FinanceVariables.VoucherDate)).sendKeys(method.PreviousYear());
 		helper1.SAP();
-		driver.findElement(By.xpath(FinanceVariables.VoucherDate)).sendKeys(Keys.ENTER);
+		MethodsCalling.driver.findElement(By.xpath(FinanceVariables.VoucherDate)).sendKeys(Keys.ENTER);
 		helper1.SAP();
 		
-	    driver.findElement(By.xpath(FinanceVariables.DebitPath)).clear();
+	    MethodsCalling.driver.findElement(By.xpath(FinanceVariables.DebitPath)).clear();
 		helper1.SAP();
-		driver.findElement(By.xpath(FinanceVariables.DebitPath)).sendKeys(Keys.ENTER);
+		MethodsCalling.driver.findElement(By.xpath(FinanceVariables.DebitPath)).sendKeys(Keys.ENTER);
 		helper1.SAP();
-		driver.findElement(By.xpath(FinanceVariables.DebitPath)).clear();
+		MethodsCalling.driver.findElement(By.xpath(FinanceVariables.DebitPath)).clear();
 		helper1.SAP();
-		driver.findElement(By.xpath(FinanceVariables.DebitPath)).sendKeys(amount);
+		MethodsCalling.driver.findElement(By.xpath(FinanceVariables.DebitPath)).sendKeys(amount);
 		helper1.SAP();
-		driver.findElement(By.xpath(FinanceVariables.ExtendButton)).click();
+		MethodsCalling.driver.findElement(By.xpath(FinanceVariables.ExtendButton)).click();
 		helper1.SAP();
-		driver.findElement(By.xpath(FinanceVariables.GLDescriptionPath)).sendKeys(Variables.narration);
+		MethodsCalling.driver.findElement(By.xpath(FinanceVariables.GLDescriptionPath)).sendKeys(Variables.narration);
 		helper1.SAP();
-		driver.findElement(By.xpath(FinanceVariables.SaveVoucher)).click();
+		MethodsCalling.driver.findElement(By.xpath(FinanceVariables.SaveVoucher)).click();
 		helper1.SAP();
-		Alert alert3 = driver.switchTo().alert();
+		method.TakeScreenShotOfWindowPopUp("ManualPostingForPreviousFinancialYear");
+		Reporter.log("File Name:"+FinanceGlobalVariables.ScreenShotsFileName+"ManualPostingForNextFinancialYear", true);
+				helper1.SAP();
+		Alert alert3 = MethodsCalling.driver.switchTo().alert();
 		helper1.SAP();
 		String message2 = alert3.getText();
 		Reporter.log(message2,true);
 		helper1.SAP();
 		alert3.accept();
 		helper1.SAP();
+		MethodsCalling.driver.navigate().refresh();
+		helper1.SAP();
+		MethodsCalling.driver.findElement(By.xpath(FinanceVariables.Export)).click();
+		helper1.SAP();
+ 	   MethodsCalling.driver.findElement(By.xpath(FinanceVariables.Exportpdf)).click();
+ 	  helper1.SAP();
+ 	 method.TakeScreenShotOfWindowPopUp("ManualPostingForPreviousFinancialYearpdf");
+		Reporter.log("File Name:"+FinanceGlobalVariables.ScreenShotsFileName+"ManualPostingForPreviousFinancialYearpdf", true);
+				helper1.SAP();
 			
 	}
 	

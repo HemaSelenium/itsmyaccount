@@ -211,16 +211,15 @@ public class BookingFacilityHelper extends TestBase {
 			Thread.sleep(4000);
 			MethodsCalling.driver.findElement(By.xpath(FinanceVariables.FacilityFinalBook)).submit();
 			Thread.sleep(4000);
-			BufferedImage image = new Robot().createScreenCapture(new Rectangle(Toolkit.getDefaultToolkit().getScreenSize()));
-   			ImageIO.write(image, "png", new File(FinanceGlobalVariables.ScreenShotsFileName+".png"));
-   			Thread.sleep(12000);
-   			
+			method.TakeScreenShotOfWindowPopUp("OtherFacilityBooked");
+			Reporter.log("File Name : "+FinanceGlobalVariables.ScreenShotsFileName+"OtherFacilityBooked", true);
+			helper1.SAP();
 			WebDriverWait wait = new WebDriverWait(MethodsCalling.driver,50);
 			wait.until(ExpectedConditions.alertIsPresent());
 			Alert alert2 = MethodsCalling.driver.switchTo().alert();
-			Thread.sleep(2000);
+			Thread.sleep(4000);
 			alert2.accept();
-			Thread.sleep(2000);
+			Thread.sleep(4000);
 			/*Alert simple=MethodsCalling.driver.switchTo().alert();
 			String simple1=MethodsCalling.driver.switchTo().alert().getText();
 			Thread.sleep(2000);
@@ -228,8 +227,6 @@ public class BookingFacilityHelper extends TestBase {
 			Thread.sleep(2000);
 			simple.accept();
 			Thread.sleep(2000);*/
-			MethodsCalling.driver.navigate().refresh();
-			Thread.sleep(2000);
 			MethodsCalling.driver.findElement(By.xpath(FinanceVariables.Application)).click();
 			/*WebElement header = MethodsCalling.driver.findElement(By.xpath("html/body/div[1]/div/div/div/div[1]/h3"));
 			String value = header.getText();
@@ -238,7 +235,7 @@ public class BookingFacilityHelper extends TestBase {
 			
 		}
 	public void BookFacility(String Facilityname, String Fromdateid,String FromTime, String Todateid,
-			String ToTime,String Description) throws InterruptedException, BiffException, IOException {
+			String ToTime,String Description) throws InterruptedException, BiffException, IOException, HeadlessException, AWTException {
 			MethodsCalling.driver.navigate().refresh();
 			Thread.sleep(2000);
 			MethodsCalling.driver.findElement(By.id(FinanceVariables.FacilitySearchGridID)).click(); // search
@@ -282,6 +279,9 @@ public class BookingFacilityHelper extends TestBase {
 			Thread.sleep(4000);
 			MethodsCalling.driver.findElement(By.xpath(FinanceVariables.FacilityFinalBook)).submit();
 			Thread.sleep(5000);
+			method.TakeScreenShotOfWindowPopUp("Facilitybooked");
+			Reporter.log("File Name : "+FinanceGlobalVariables.ScreenShotsFileName+"Facilitybooked", true);
+			helper1.SAP();
 			WebDriverWait wait = new WebDriverWait(MethodsCalling.driver,50);
 			wait.until(ExpectedConditions.alertIsPresent());
 			Alert alert2 = MethodsCalling.driver.switchTo().alert();
@@ -328,7 +328,7 @@ public class BookingFacilityHelper extends TestBase {
 	}
 	
 
-	public String ToGetGeneratedVoucherno() throws InterruptedException, BiffException, IOException {
+	public String ToGetGeneratedVoucherno() throws InterruptedException, BiffException, IOException, HeadlessException, AWTException {
 		
 		MethodsCalling.driver.findElement(By.xpath(FinanceVariables.Application)).click();
 		Thread.sleep(9000);
@@ -343,12 +343,12 @@ public class BookingFacilityHelper extends TestBase {
 		MethodsCalling.driver.findElement(By.id(FinanceVariables.GridSearchTxtboxId)).sendKeys(FinanceVariables.FacilitySearchKeyword);
 		Thread.sleep(4000);
 		MethodsCalling.driver.findElement(By.id(FinanceVariables.GridSeachFindid)).click();
-		/*WebDriverWait wait=new WebDriverWait(MethodsCalling.driver, 20000);
-		WebElement myDynamicElement = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(FinanceVariables.GridSearchClose)));
-		myDynamicElement.click();*/
 		Thread.sleep(20000);
 		MethodsCalling.driver.findElement(By.xpath(FinanceVariables.GridSearchClose)).click();
 		Thread.sleep(3000);
+		method.TakeScreenShotOfWindowPopUp("FacilityFound");
+		Reporter.log("File Name : "+FinanceGlobalVariables.ScreenShotsFileName+"FacilityFound", true);
+		helper1.SAP();
 	 FIGvoucherno1 = MethodsCalling.driver.findElement(By.xpath(FinanceVariables.HeaderReferenceTabInFinanceVouchers)).getText();
 		Thread.sleep(4000);
 		String duedate = MethodsCalling.driver.findElement(By.xpath(FinanceVariables.DuedateTabInFinanceVouchers)).getText();
@@ -551,15 +551,12 @@ public void Addfacility1(String facilityname,String contactperson,String contact
 		Thread.sleep(4000);
 		MethodsCalling.driver.findElement(By.id(FinanceVariables.HourlyAmountId)).sendKeys(amount);
 		Thread.sleep(4000);
-		MethodsCalling.driver.findElement(By.xpath(FinanceVariables.DueDate)).sendKeys(FinanceVariables.DueType2);
-	
-		Thread.sleep(8000);
-		MethodsCalling.driver.findElement(By.xpath(FinanceVariables.DueDateType)).sendKeys(Keys.ENTER);
-	
-		Thread.sleep(8000);
-		
-		MethodsCalling.driver.findElement(By.xpath(FinanceVariables.DueDateType)).sendKeys(days);
-		Thread.sleep(8000);
+		MethodsCalling.driver.findElement(By.xpath(FinanceVariables.CalculationType)).sendKeys(FinanceVariables.DueType2);
+	Thread.sleep(4000);
+		MethodsCalling.driver.findElement(By.xpath(FinanceVariables.CalculationType)).sendKeys(Keys.ENTER);
+Thread.sleep(4000);
+		MethodsCalling.driver.findElement(By.xpath(FinanceVariables.DueDate)).sendKeys(days);
+		Thread.sleep(4000);
 		Reporter.log("Booked Facility Name: " + facilityname,true);
 		Thread.sleep(4000);
 		MethodsCalling.driver.findElement(By.xpath(FinanceVariables.FacilitySave)).click();

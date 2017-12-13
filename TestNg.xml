@@ -131,7 +131,7 @@ IntegrationWithBioMetricDevice
 <class name="IntegrationWithBiometric.InHouseStaffWithBadgeIdAndWithOutSMSTick"/>
 <class name="IntegrationWithBiometric.ServantMaidListwithouBageID"/>
 <class name="IntegrationWithBiometric.ServantMaidListWithBadgeID"/>
-<class name="IntegrationWithBiometric.EditSeravntmaidListWithUnTickSMS"/> 
+<class name="IntegrationWithBiometric.EditSeravntmaidListWithUnTickSMS"/>
 <class name="IntegrationWithBiometric.AdminRegularvendorsWithoutBadgeId"/>
 <class name="IntegrationWithBiometric.RegularVendorsWithBadgeId"/>
 <class name="IntegrationWithBiometric.AddRegularVendorWithoutSMSTick"/>
@@ -156,7 +156,7 @@ IntegrationWithBioMetricDevice
 Finance
 
 
-<class name="myfinance.BookingFacilityFor1000_01"/>
+<class name="myfinance.BookingFacilityFor1000_01"/>//
 <class name="myfinance.FixedInvoiceGeneration"/>
 <class name="myfinance.VariableInvoiceGeneration"/>
 <class name="myfinance.PaymentForTheFacilityWhichIsBookedFor1000"/>
@@ -164,11 +164,11 @@ Finance
 <class name="myfinance.ReversalFunctionTestingSimulationstep10"/>
 <class name="myfinance.AdvancePaymentForfacility1000"/>
 <class name="myfinance.AdvancePaymentGeneral"/>
-<class name="myfinance.AdvancePaymentForMaintainance"/>//
+<class name="myfinance.AdvancePaymentForMaintainance"/>
 <class name="myfinance.AdvanceReversalSimulationstep14"/>
-<class name="myfinance.ReversalOfFacilityAdvance"/>//
+<class name="myfinance.ReversalOfFacilityAdvance"/>
 <class name="myfinance.AdvancePaymentForfacility1000"/>
-<class name="myfinance.BookingFacilityFor4500"/>
+<class name="myfinance.BookingFacilityFor4500"/>//
 <class name="myfinance.ReversalOffacilityAdvanceSimulation"/>
 <class name="myfinance.FixedMaintainanceInvoiceGenerationwithExcelUpload"/>
 <class name="myfinance.FixedInvoiceWithTax"/>

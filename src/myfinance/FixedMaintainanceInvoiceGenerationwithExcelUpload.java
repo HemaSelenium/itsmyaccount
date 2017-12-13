@@ -13,6 +13,7 @@ import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 import FinanceCommon.FinanceGlobalVariables;
+import FinanceCommon.MethodsCalling;
 import FinanceCommon.TestBase;
 import jxl.Cell;
 import jxl.Sheet;
@@ -50,7 +51,7 @@ public class FixedMaintainanceInvoiceGenerationwithExcelUpload extends TestBase 
 	public void FixedInvoiceGenerationWithDates(String amount,String narration)  throws BiffException, InterruptedException, IOException, HeadlessException, AWTException{
 		splitmessage = help1.GenerateFixedInvoiceno1(amount, narration) ;
 		helper1.SAP();
-		driver.navigate().refresh();
+		MethodsCalling.driver.navigate().refresh();
 		helper1.SAP();
 			
 	}

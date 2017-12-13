@@ -1,17 +1,19 @@
 package myfinance;
 
+import java.awt.AWTException;
+import java.awt.HeadlessException;
 import java.io.File;
 import java.io.IOException;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
+
 import org.testng.Reporter;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 import FinanceCommon.FinanceGlobalVariables;
 import FinanceCommon.FinanceVariables;
+import FinanceCommon.MethodsCalling;
 import FinanceCommon.TestBase;
 import jxl.Cell;
 import jxl.Sheet;
@@ -20,7 +22,7 @@ import jxl.read.biff.BiffException;
 
 public class WaiverForFixedInvoice2000 extends TestBase {
 	
-	//WebDriver driver = new FirefoxDriver();
+	//WebMethodsCalling.driver MethodsCalling.driver = new FirefoxMethodsCalling.driver();
 	logindetails ldr = new logindetails();
 	FinancialVouchersHelp help2 = new FinancialVouchersDEMO10();
 	
@@ -32,6 +34,7 @@ public class WaiverForFixedInvoice2000 extends TestBase {
 			Reporter.log("--------------------------------------",true);
 			Reporter.log("Script Name:  Waiver For Fixed Invoice 2000",true);
 			helper1.SAP();
+			Reporter.log("--------------------------------------",true);
 		}
 
 	@Test(priority = 2)
@@ -42,24 +45,24 @@ public class WaiverForFixedInvoice2000 extends TestBase {
 	}
 	
 	@Test(priority = 3,dataProvider = "Partial",dependsOnMethods="Login")
-	public void waiver(String waveofvoucher ) throws InterruptedException {
+	public void waiver(String waveofvoucher ) throws InterruptedException, HeadlessException, IOException, AWTException {
 		help2.Waiver(waveofvoucher);
 		helper1.SAP();
-		driver.findElement(By.xpath(FinanceVariables.Application)).click();
+		MethodsCalling.driver.findElement(By.xpath(FinanceVariables.Application)).click();
 		helper1.SAP();
-		driver.findElement(By.xpath(FinanceVariables.FinanceVouchers)).click();
+		MethodsCalling.driver.findElement(By.xpath(FinanceVariables.FinanceVouchers)).click();
 		helper1.SAP();
 		helper1.SAP();
 		helper1.SAP();
-		driver.findElement(By.id(FinanceVariables.GridSearch)).click();
+		MethodsCalling.driver.findElement(By.id(FinanceVariables.GridSearch)).click();
 		helper1.SAP();
-		driver.findElement(By.xpath(FinanceVariables.GridSearchType)).click();
+		MethodsCalling.driver.findElement(By.xpath(FinanceVariables.GridSearchType)).click();
 		Thread.sleep(4000);
-		driver.findElement(By.id(FinanceVariables.GridSearchTxtboxId)).sendKeys(waveofvoucher);
+		MethodsCalling.driver.findElement(By.id(FinanceVariables.GridSearchTxtboxId)).sendKeys(waveofvoucher);
 		helper1.SAP();
-		driver.findElement(By.id(FinanceVariables.GridSeachFindid)).click();// find button
+		MethodsCalling.driver.findElement(By.id(FinanceVariables.GridSeachFindid)).click();// find button
 		helper1.SAP();
-		driver.findElement(By.xpath(FinanceVariables.GridSearchClose)).click(); 
+		MethodsCalling.driver.findElement(By.xpath(FinanceVariables.GridSearchClose)).click(); 
 		helper1.SAP();																					
 		}
 	

@@ -6,8 +6,7 @@ import java.io.IOException;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
+
 import org.testng.Reporter;
 import org.testng.annotations.Test;
 
@@ -20,7 +19,7 @@ import FinanceCommon.TestBase;
 
 
 public class FilterDatesInFinanceVouchers extends TestBase {
-	//WebDriver driver = new FirefoxDriver();
+	//WebMethodsCalling.driver MethodsCalling.driver = new FirefoxMethodsCalling.driver();
 	logindetails ldr = new logindetails();
 	protected static FinanceVariables fin=new FinanceVariables();
 	 protected static MethodsCalling method=new MethodsCalling();
@@ -36,29 +35,29 @@ public class FilterDatesInFinanceVouchers extends TestBase {
 	}
 	@Test(priority = 2)
 	public void period() throws InterruptedException, IOException, HeadlessException, AWTException {
-		driver.findElement(By.xpath(FinanceVariables.Application)).click();
+		MethodsCalling.driver.findElement(By.xpath(FinanceVariables.Application)).click();
 		helper1.SAP();
-		driver.findElement(By.xpath(FinanceVariables.FinanceVouchers)).click();
+		MethodsCalling.driver.findElement(By.xpath(FinanceVariables.FinanceVouchers)).click();
 		helper1.SAP();
-		driver.findElement(By.xpath(FinanceVariables.Filter)).click();
+		MethodsCalling.driver.findElement(By.xpath(FinanceVariables.Filter)).click();
 		helper1.SAP();
-		driver.findElement(By.xpath(FinanceVariables.FilterTodate)).clear();
+		MethodsCalling.driver.findElement(By.xpath(FinanceVariables.FilterTodate)).clear();
 		helper1.SAP();
-		driver.findElement(By.xpath(FinanceVariables.FilterTodate)).sendKeys(method.NextFinancialtoYearMinus1month());
+		MethodsCalling.driver.findElement(By.xpath(FinanceVariables.FilterTodate)).sendKeys(method.NextFinancialtoYearMinus1month());
 		helper1.SAP();
-		driver.findElement(By.xpath(FinanceVariables.FilterTodate)).sendKeys(Keys.ENTER);
+		MethodsCalling.driver.findElement(By.xpath(FinanceVariables.FilterTodate)).sendKeys(Keys.ENTER);
 		helper1.SAP();
-		driver.findElement(By.xpath(FinanceVariables.FinFilterGo)).click();
+		MethodsCalling.driver.findElement(By.xpath(FinanceVariables.FinFilterGo)).click();
 		helper1.SAP();
-		driver.findElement(By.xpath(FinanceVariables.Filter)).click();
+		MethodsCalling.driver.findElement(By.xpath(FinanceVariables.Filter)).click();
 		helper1.SAP();
-		driver.findElement(By.xpath(FinanceVariables.FilterTodate)).clear();
+		MethodsCalling.driver.findElement(By.xpath(FinanceVariables.FilterTodate)).clear();
 		helper1.SAP();
-		driver.findElement(By.xpath(FinanceVariables.FilterTodate)).sendKeys(method.NextFinancialtoYear1());
+		MethodsCalling.driver.findElement(By.xpath(FinanceVariables.FilterTodate)).sendKeys(method.NextFinancialtoYear1());
 		helper1.SAP();
-		driver.findElement(By.xpath(FinanceVariables.FilterTodate)).sendKeys(Keys.ENTER);
+		MethodsCalling.driver.findElement(By.xpath(FinanceVariables.FilterTodate)).sendKeys(Keys.ENTER);
 		helper1.SAP();
-		driver.findElement(By.xpath(FinanceVariables.FinFilterGo)).click();
+		MethodsCalling.driver.findElement(By.xpath(FinanceVariables.FinFilterGo)).click();
 		helper1.SAP();
 		 method.TakeScreenShotOfWindowPopUp("FilterDatesInFinanceVouchers");
 			Reporter.log("File Name : "+FinanceGlobalVariables.ScreenShotsFileName+"FilterDatesInFinanceVouchers", true);

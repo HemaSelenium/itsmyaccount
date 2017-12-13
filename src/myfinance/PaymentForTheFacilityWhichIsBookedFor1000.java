@@ -48,6 +48,7 @@ public class PaymentForTheFacilityWhichIsBookedFor1000 extends TestBase {
 		Reporter.log("Test Script:  FinanceTestingIMA_TC_004",true);
 		Reporter.log("--------------------------------------",true);
 		Reporter.log("Script Name:  Payment For The Facility Which Is Booked For 1000",true);
+		Reporter.log("--------------------------------------",true);
 	}
 
 	
@@ -145,6 +146,7 @@ public class PaymentForTheFacilityWhichIsBookedFor1000 extends TestBase {
 		
 		Reporter.log("File Name : "+FinanceGlobalVariables.ScreenShotsFileName+"facilitypayment1", true);
 		helper1.SAP();
+		Reporter.log("--------------------------------------",true);
 		
 			
 		}

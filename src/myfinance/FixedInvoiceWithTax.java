@@ -7,8 +7,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
+
 import org.testng.Reporter;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
@@ -29,7 +28,7 @@ import jxl.write.biff.RowsExceededException;
 
 public class FixedInvoiceWithTax extends TestBase {
 
-	//WebDriver driver = new FirefoxDriver();
+	//WebMethodsCalling.driver MethodsCalling.driver = new FirefoxMethodsCalling.driver();
 	logindetails ldr = new logindetails();
 	InvoiceGenerationHelper help1 = new InvoiceGenerationHelpDEMO10();
 	FinancialVouchersHelp help2 = new FinancialVouchersDEMO10();
@@ -61,9 +60,6 @@ public class FixedInvoiceWithTax extends TestBase {
 	
 	@Test(priority = 4,dependsOnMethods="Tax")
 	public void log() throws BiffException, InterruptedException, IOException{
-		ldr.logout();
-		
-		helper1.SAP();
 		ldr.adminlogin();
 		helper1.SAP();
 	}
@@ -71,7 +67,7 @@ public class FixedInvoiceWithTax extends TestBase {
 	public void GenerateFixedInvoiceWithTax(String amount) throws InterruptedException, IOException, BiffException, HeadlessException, AWTException{
 		splitmessage1=help1.GenerateFixedInvoiceWithTax(amount);
 		helper1.SAP();
-		driver.navigate().refresh();
+		MethodsCalling.driver.navigate().refresh();
 		helper1.SAP();	
 	}
 	@Test(priority = 6,dependsOnMethods="GenerateFixedInvoiceWithTax")
@@ -91,19 +87,19 @@ public class FixedInvoiceWithTax extends TestBase {
 	
 	@Test(priority = 7,dataProvider = "advance",dependsOnMethods="writeVoucherno")
 	public void CheckadvanceClearance(String advref) throws InterruptedException{
-		driver.findElement(By.xpath(FinanceVariables.Application)).click();
+		MethodsCalling.driver.findElement(By.xpath(FinanceVariables.Application)).click();
 		helper1.SAP();
-		driver.findElement(By.xpath(FinanceVariables.FinanceVouchers)).click();
+		MethodsCalling.driver.findElement(By.xpath(FinanceVariables.FinanceVouchers)).click();
 		helper1.SAP();
-		driver.findElement(By.xpath(FinanceVariables.GridSearch)).click();
+		MethodsCalling.driver.findElement(By.xpath(FinanceVariables.GridSearch)).click();
 		helper1.SAP();
-		driver.findElement(By.xpath(FinanceVariables.GridSearchType)).click();
+		MethodsCalling.driver.findElement(By.xpath(FinanceVariables.GridSearchType)).click();
 	    helper1.SAP();
-		driver.findElement(By.id(FinanceVariables.GridSearchTxtboxId)).sendKeys(advref);
+		MethodsCalling.driver.findElement(By.id(FinanceVariables.GridSearchTxtboxId)).sendKeys(advref);
 		helper1.SAP();
-		driver.findElement(By.id(FinanceVariables.GridSeachFindid)).click();// find button
+		MethodsCalling.driver.findElement(By.id(FinanceVariables.GridSeachFindid)).click();// find button
 		helper1.SAP();
-		driver.findElement(By.xpath(FinanceVariables.GridSearchClose)).click(); // close
+		MethodsCalling.driver.findElement(By.xpath(FinanceVariables.GridSearchClose)).click(); // close
 	    helper1.SAP();
 	}
 	

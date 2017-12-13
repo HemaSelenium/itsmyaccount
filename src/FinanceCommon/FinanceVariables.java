@@ -28,6 +28,7 @@ public class FinanceVariables {
 	public static String CalculationType=".//*[@id='TypeOfDueDate']";
 	public static String DueDateType="Number of Days from billing date";
 	public static String DueDateType1="End Of month";
+	public static String EditManualVoucherAmount="55.00";
 	
 	public static String DueType2="Number of Days from booking date";
 	public static String DueDate=".//*[@id='DueDate']";
@@ -159,12 +160,12 @@ public class FinanceVariables {
 	public static String FilterGo=".//*[@id='btnGo']";
 	public static String LedgerGroup=".//*[@id='501']/div/img";
 	public static String AccountGroupNametxtbox=".//*[@id='LedgerGroupName']";
-	public static String AccountGroupName="Expenses26";
+	
 	public static String LedgeraccountGroupNameTxtBox=".//*[@id='ledgerGrp']";
-	public static String LedgeraccountGroupName="expenses";
+	
 	public static String AccountGroupNameSave=".//*[@id='btnSave']";
 	public static String EditGroupName=".//*[@id='Edit']";
-	public static String AccountGroupName2="expenses27";
+	
 	public static String TrialBalance="html/body/div[1]/div/div/ul/li/b[1]/a";
 	public static String IncomeandExpenditure="html/body/div[1]/div/div/ul/li/b[3]/a";
 	public static String Ledger="html/body/div[1]/div/div/ul/li/b[4]/a";

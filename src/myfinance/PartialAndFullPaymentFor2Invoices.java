@@ -1,5 +1,7 @@
 package myfinance;
 
+import java.awt.AWTException;
+import java.awt.HeadlessException;
 import java.io.IOException;
 
 import org.openqa.selenium.WebDriver;
@@ -34,7 +36,7 @@ public class PartialAndFullPaymentFor2Invoices extends TestBase {
 	}
 	
 	@Test(priority = 3)
-	public void partial() throws InterruptedException, BiffException, IOException {
+	public void partial() throws InterruptedException, BiffException, IOException, HeadlessException, AWTException {
 		help2.PaymentInstep23D();
 		helper1.SAP();
 		

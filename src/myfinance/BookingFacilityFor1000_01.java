@@ -1,4 +1,6 @@
 package myfinance;
+import java.awt.AWTException;
+import java.awt.HeadlessException;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -33,6 +35,7 @@ public class BookingFacilityFor1000_01 extends TestBase {
 		Reporter.log("Test Script:  FinanceTestingIMA_TC_001",true);
 		Reporter.log("--------------------------------------",true);
 		Reporter.log("Script Name:  Facility Booking",true);
+		Reporter.log("--------------------------------------",true);
 		helper1.SAP();
 		
 	}
@@ -41,6 +44,7 @@ public class BookingFacilityFor1000_01 extends TestBase {
 	public void UserLogin()
 			throws InterruptedException, IOException {
 		method.userLoginWithScreenShotsBeforeProcess1();
+		
 		helper1.SAP();
 	}
 
@@ -61,6 +65,7 @@ public class BookingFacilityFor1000_01 extends TestBase {
 	public void AddFacility(String facilityname, String contactperson, String contactnumber, String hour,String amount, String days) throws BiffException, InterruptedException, IOException
 			{
 		help1.Addfacility( facilityname, contactperson, contactnumber, hour, amount, days);
+		Reporter.log("--------------------------------------",true);
 		helper1.SAP();	
 		
 	}
@@ -68,15 +73,17 @@ public class BookingFacilityFor1000_01 extends TestBase {
 	@Test(priority = 6, dataProvider = "BookFacility",dependsOnMethods="AddFacility")
 	public void Bookfacility(String Facilityname, String Fromdateid,String FromTime, String Todateid,
 			String ToTime,String Description)
-			throws BiffException, InterruptedException, IOException {
+			throws BiffException, InterruptedException, IOException, HeadlessException, AWTException {
 		help1.BookFacility(Facilityname,Fromdateid,  FromTime,Todateid,ToTime,Description);
+		Reporter.log("--------------------------------------",true);
 		helper1.SAP();
 	}
 
 	@Test(priority = 7,dependsOnMethods="Bookfacility")
-	public void FIGvoucherno() throws InterruptedException, BiffException, IOException {
+	public void FIGvoucherno() throws InterruptedException, BiffException, IOException, HeadlessException, AWTException {
 		
 	voucherno = help1.ToGetGeneratedVoucherno();
+	Reporter.log("--------------------------------------",true);
 	helper1.SAP();
 	
 
@@ -87,6 +94,7 @@ public class BookingFacilityFor1000_01 extends TestBase {
 	public void MemberReports() throws InterruptedException{
 		
 		help1.MemberReports( voucherno);
+		Reporter.log("--------------------------------------",true);
 		helper1.SAP();
 		
 	}

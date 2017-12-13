@@ -73,7 +73,7 @@ public class logindetails extends TestBase {
 
 	public void logout() throws InterruptedException {
 MethodsCalling.driver.findElement(By.xpath(FinanceVariables.LogOut)).click();;
-		Thread.sleep(2000);
+		Thread.sleep(4000);
 	}
 
 	public void blockFlat() throws InterruptedException {
@@ -98,7 +98,7 @@ MethodsCalling.driver.findElement(By.xpath(FinanceVariables.LogOut)).click();;
 		MethodsCalling.driver.findElement(By.id(FinanceVariables.GridSearchTxtboxId)).sendKeys(splitmessage);
 		helper1.SAP();
 		MethodsCalling.driver.findElement(By.id(FinanceVariables.GridSeachFindid)).click();// find button
-		helper1.SAP();
+		Thread.sleep(8000);
 		MethodsCalling.driver.findElement(By.xpath(FinanceVariables.GridSearchClose)).click(); // close
 																						// button
 		helper1.SAP();
@@ -123,7 +123,7 @@ MethodsCalling.driver.findElement(By.xpath(FinanceVariables.LogOut)).click();;
 		Actions action = new Actions(MethodsCalling.driver).doubleClick(element);
 		action.build().perform();
 		helper1.SAP();
-		method.TakeScreenShotOfWindowPopUp("Voucher");
+		method.TakeScreenShot("Voucher");
 		Reporter.log("File Name : "+FinanceGlobalVariables.ScreenShotsFileName+"Voucher", true);
 		helper1.SAP();
 	
@@ -275,8 +275,7 @@ public void SearchVoucherno2(String splitmessage1) throws InterruptedException, 
 	Actions action = new Actions(MethodsCalling.driver).doubleClick(element);
 	action.build().perform();
 	helper1.SAP();
-	
-	method.TakeScreenShotOfWindowPopUp("Invoice2000");
+	method.TakeScreenShot("Invoice2000");
 	Reporter.log("File Name : "+FinanceGlobalVariables.ScreenShotsFileName+"Invoice2000", true);
 	helper1.SAP();
 	
